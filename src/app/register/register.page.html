@@ -1,0 +1,60 @@
+
+
+<ion-content scrollEnabled="false">
+  <div class="container">
+    <div class="gradient-circle"></div>
+  </div>
+
+  <div class="container2">
+    <div class="gradient-circle2"></div>
+  </div>
+
+  <div class="container3">
+    <div class="gradient-circle3"></div>
+  </div>
+  
+  <div class="container4">
+    <div class="gradient-circle4"></div>
+  </div>
+
+  <div class="container5">
+    <div class="gradient-circle5"></div>
+  </div>
+  <div class="container6">
+    <div class="gradient-circle6"></div>
+  </div>
+
+  <div class="container7">
+    <div class="gradient-circle7"></div>
+  </div>
+
+  <div id="container">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Register</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Name</ion-label>
+        <ion-input [(ngModel)]="user.name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input [(ngModel)]="user.email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+      </ion-item>
+      <ion-button expand="full" (click)="register()">Register</ion-button>
+
+      
+
+    </ion-card-content>
+  </ion-card>
+</div>
+<div class="container">
+  <div class="gradient-circle"></div>
+  <div class="gradient-circle-bottom-left"></div>
+</div>
+</ion-content>
