@@ -53,6 +53,15 @@ ion-content {
   ion-card-title{
     color:white;
   }
+
+  .register-link {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+    a {
+      color: var(--ion-color-primary);
+    }
   #container {
     text-align: center;
   

@@ -1,0 +1,44 @@
+
+
+
+
+
+
+
+<ion-content>
+  <div id="container">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Login</ion-card-title>
+      <ion-card-subtitle color="warning"> Heshtag Wedding  </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input [(ngModel)]="user.email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+      </ion-item>
+      <ion-button expand="full" (click)="login()">Login</ion-button>
+
+      
+      <p class="register-link">
+        Don't have an account? <a routerLink="/register">Register</a>
+      </p>
+      <p class="reset-password-link">
+        <a routerLink="/reset-password">Forgot your password?</a>
+      </p>
+    </ion-card-content>
+  </ion-card>
+</div>
+<div class="container">
+  <div class="gradient-circle"></div>
+  <div class="gradient-circle-bottom-left"></div>
+</div>
+</ion-content>
+
+
+
+
