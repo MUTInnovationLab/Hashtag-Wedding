@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Wedding Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Wedding Information</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Wedding Type</ion-label>
+        <ion-input [(ngModel)]="wedding.wed_type"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Contact Gender</ion-label>
+        <ion-input [(ngModel)]="wedding.c_gender"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Groom</ion-label>
+        <ion-input [(ngModel)]="wedding.groom"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Bride</ion-label>
+        <ion-input [(ngModel)]="wedding.bride"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="full" (click)="saveWeddingChanges()">Save Changes</ion-button>
+</ion-content>
