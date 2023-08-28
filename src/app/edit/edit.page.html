@@ -1,33 +1,77 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Wedding Details</ion-title>
+    <ion-title>Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Wedding Information</ion-card-title>
+      <ion-card-title>Profile</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <ion-item>
-        <ion-label>Wedding Type</ion-label>
-        <ion-input [(ngModel)]="wedding.wed_type"></ion-input>
+        <ion-label>Name</ion-label>
+        <ion-input   [maxlength]="40" type="text" [(ngModel)]="user.name"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Contact Gender</ion-label>
-        <ion-input [(ngModel)]="wedding.c_gender"></ion-input>
+        <ion-label>Surname</ion-label>
+        <ion-input   [maxlength]="40" type="text" [(ngModel)]="user.surname"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Groom</ion-label>
-        <ion-input [(ngModel)]="wedding.groom"></ion-input>
+        <ion-label>Email</ion-label>
+        <ion-input   [maxlength]="40" type="text" [(ngModel)]="user.email"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Bride</ion-label>
-        <ion-input [(ngModel)]="wedding.bride"></ion-input>
+        <ion-label>Phone number</ion-label>
+        <ion-input   [maxlength]="40" type="text" [(ngModel)]="user.phone"></ion-input>
       </ion-item>
+      <ion-item>
+        <ion-label>Country</ion-label>
+        <ion-input   [maxlength]="40" type="text" [(ngModel)]="user.country"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Country</ion-label>
+        <ion-input   [maxlength]="40" type="text" [(ngModel)]="user.gender"></ion-input>
+      </ion-item>
+      <!-- Other profile fields here -->
+      <div class="profile-container" [@fadeInOut]="showProfile ? 'visible' : 'hidden'">
+      <ion-button expand="full"  #nextButton expand="full" (click)="toggleSections()">Next</ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+
+
+<div class="container" [@fadeInOut]="showWeddingInfo ? 'visible' : 'hidden'">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title color="primary" >Wedding Information</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-input  label="Wedding Type"   [maxlength]="40" label-placement="floating" [(ngModel)]="wedding.wed_type"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Contact Gender"   [maxlength]="40" label-placement="floating" [(ngModel)]="wedding.c_gender"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-input label="Groom" label-placement="floating" [maxlength]="40" [(ngModel)]="wedding.groom"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Bride" label-placement="floating" [maxlength]="40" [(ngModel)]="wedding.bride"></ion-input>
+      </ion-item>
+
     </ion-card-content>
   </ion-card>
 
   <ion-button expand="full" (click)="saveWeddingChanges()">Save Changes</ion-button>
+</div>
+
+
+
 </ion-content>
