@@ -107,40 +107,52 @@ export class EditPage implements OnInit {
         console.error(error.message);
       });
   }
+  
 
-
+ docData:any;
   async getUserDoc() {
     try {
       const user = await this.auth.currentUser;
+      alert(user?.email);
+      if (user && user.email) {
+        const docSnapshot = await this.dataService.getUserDoc(user.email);
   
-      if (!user) {
-        console.log("User is not authenticated.");
-        return;
-      }
-  
-      if (!user.email) {
-        console.log("User's email is not available.");
-        return;
-      }
-  
-      const docSnapshot = await this.dataService.getUserDoc(user.email);
-  
-      if (docSnapshot?.exists) {
-        console.log("Document data:", docSnapshot.data());
+        console.log("mike");
+        if (docSnapshot?.exists) {
+          this.docData = docSnapshot.data(); // Get the data object from the snapshot
+          // Set data to the user object
+          this.user.name = this.docData.user.name;
+          this.user.surname = this.docData.user.surname;
+          this.user.country = this.docData.user.country ;
+          this.user.email = this.docData.user.email ;
+          this.user.phone = this.docData.user.phone ;
+          this.user.gender = this.docData.user.gender ;
+    
+          // Set this.docData to the wedding object
+          this.wedding.wed_type = this.docData.wedding.wed_type || '';
+          this.wedding.c_gender = this.docData.wedding.c_gender || '';
+          this.wedding.groom = this.docData.wedding.groom || '';
+          this.wedding.bride = this.docData.wedding.bride || '';
+          this.wedding.couple = this.docData.wedding.couple || '';
+          this.wedding.wed_date = this.docData.wedding.wed_date || '';
+          this.wedding.days_Till_wed = this.docData.wedding.days_Till_wed || 0;
+          this.wedding.location = this.docData.wedding.location || '';
+          this.wedding.minBudget = this.docData.wedding.minBudget || '';
+          this.wedding.maxBudget = this.docData.wedding.maxBudget || '';
+    
+          console.log("User this.docData:", this.user);
+          console.log("Wedding this.docData:", this.wedding);
+          console.log("Document data:", docSnapshot.data());
+        } else {
+          console.log("Document does not exist.");
+        }
       } else {
-        console.log("Document does not exist.");
+        console.log("User is not authenticated or email is not available.");
       }
     } catch (error) {
       console.error("An error occurred:", error);
     }
   }
-  
-
-
-
-
-
- 
   
   
   
