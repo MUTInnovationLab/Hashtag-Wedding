@@ -12,28 +12,27 @@
     </ion-card-header>
     <ion-card-content>
       <ion-item>
-        <ion-label>Name</ion-label>
-        <ion-input   [maxlength]="40" type="text" [(ngModel)]="user.name"></ion-input>
+        <ion-input label="Name" labelPlacement="floating"  [maxlength]="40" type="text" [(ngModel)]="user.name"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Surname</ion-label>
-        <ion-input   [maxlength]="40" type="text" [(ngModel)]="user.surname"></ion-input>
+        <ion-input label="Surname" labelPlacement="floating" [maxlength]="40" type="text" [(ngModel)]="user.surname"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Email</ion-label>
-        <ion-input   [maxlength]="40" type="text" [(ngModel)]="user.email"></ion-input>
+        <ion-input label="Email" labelPlacement="floating" [maxlength]="40" type="text" [(ngModel)]="user.email"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Phone number</ion-label>
-        <ion-input   [maxlength]="40" type="text" [(ngModel)]="user.phone"></ion-input>
+        <ion-input label="Phone number" labelPlacement="floating" [maxlength]="40" type="text" [(ngModel)]="user.phone"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Country</ion-label>
-        <ion-input   [maxlength]="40" type="text" [(ngModel)]="user.country"></ion-input>
+        <ion-input label="Country" labelPlacement="floating"  [maxlength]="40" type="text" [(ngModel)]="user.country"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Country</ion-label>
-        <ion-input   [maxlength]="40" type="text" [(ngModel)]="user.gender"></ion-input>
+       
+        <ion-select label="Gender" placeholder="select your gender" [(ngModel)]="user.gender">
+          <ion-select-option value="male">Male</ion-select-option>
+          <ion-select-option value="female">Female</ion-select-option>
+          <ion-select-option value="other">Other</ion-select-option>
+        </ion-select>
       </ion-item>
       <!-- Other profile fields here -->
       <div class="profile-container" [@fadeInOut]="showProfile ? 'visible' : 'hidden'">
@@ -55,7 +54,12 @@
       </ion-item>
 
       <ion-item>
-        <ion-input label="Contact Gender"   [maxlength]="40" label-placement="floating" [(ngModel)]="wedding.c_gender"></ion-input>
+        <ion-label>Contact Gender</ion-label>
+        <ion-select [(ngModel)]="wedding.c_gender" label="Contact Gender" placeholder="select contact gender">
+          <ion-select-option value="male">Male</ion-select-option>
+          <ion-select-option value="female">Female</ion-select-option>
+          <ion-select-option value="other">Other</ion-select-option>
+        </ion-select>
       </ion-item>
       
       <ion-item>
