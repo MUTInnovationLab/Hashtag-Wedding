@@ -1,11 +1,35 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Profile</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content>
 
+  <div class="container">
+    <div class="gradient-circle"></div>
+  </div>
+
+  <div class="container2">
+    <div class="gradient-circle2"></div>
+  </div>
+
+  <div class="container3">
+    <div class="gradient-circle3"></div>
+  </div>
+  
+  <div class="container4">
+    <div class="gradient-circle4"></div>
+  </div>
+
+  <div class="container5">
+    <div class="gradient-circle5"></div>
+  </div>
+  <div class="container6">
+    <div class="gradient-circle6"></div>
+  </div>
+
+  <div class="container7">
+    <div class="gradient-circle7"></div>
+  </div>
+
+  <div class="containerUser">
   <ion-card>
     <ion-card-header>
       <ion-card-title>Profile</ion-card-title>
@@ -26,6 +50,7 @@
       <ion-item>
         <ion-input label="Country" labelPlacement="floating"  [maxlength]="40" type="text" [(ngModel)]="user.country"></ion-input>
       </ion-item>
+      
       <ion-item>
        
         <ion-select label="Gender" placeholder="select your gender" [(ngModel)]="user.gender">
@@ -40,10 +65,10 @@
       </div>
     </ion-card-content>
   </ion-card>
+</div>
 
 
-
-<div class="container" [@fadeInOut]="showWeddingInfo ? 'visible' : 'hidden'">
+<div class="containerrr" [@fadeInOut]="showWeddingInfo ? 'visible' : 'hidden'">
   <ion-card>
     <ion-card-header>
       <ion-card-title color="primary" >Wedding Information</ion-card-title>
@@ -69,6 +94,29 @@
       <ion-item>
         <ion-input label="Bride" label-placement="floating" [maxlength]="40" [(ngModel)]="wedding.bride"></ion-input>
       </ion-item>
+      <ion-item>
+        <ion-input label="Location" label-placement="floating" [maxlength]="40" [(ngModel)]="wedding.location"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Wedding Date</ion-label>
+        <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+             <ion-datetime id="datetime" name="wed_date" (ionChange)="setDate($event)" presentation="date"></ion-datetime>
+          </ng-template>
+        </ion-modal>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="number" label="Minimum Budget" label-placement="floating"  [(ngModel)]="wedding.minBudget"name="minBudget"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+         <ion-input type="number" label="Maximum Budget" label-placement="floating" [(ngModel)]="wedding.maxBudget" name="maxBudget"></ion-input>
+      </ion-item>
+      
+
 
     </ion-card-content>
   </ion-card>
