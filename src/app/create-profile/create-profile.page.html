@@ -1,0 +1,103 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="mobile-only"><ion-title>Create Your Profile</ion-title></div>
+    <ion-buttons>
+      <ion-menu-button>
+
+      </ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <div class="gradient-circle"></div>
+  </div>
+  <div class="container2">
+    <div class="gradient-circle2"></div>
+  </div>
+  <div class="container3">
+    <div class="gradient-circle3"></div>
+  </div>
+  <div class="container4">
+    <div class="gradient-circle4"></div>
+  </div>
+  <div class="container5">
+    <div class="gradient-circle5"></div>
+  </div>
+  <div class="container6">
+    <div class="gradient-circle6"></div>
+  </div>
+
+  <div class="container7">
+    <div class="gradient-circle7"></div>
+  </div>
+
+  <ion-card  class="mobile">
+    <ion-card-header class="header">
+      Create Your Profile here
+    </ion-card-header>
+    <ion-card-content style="margin-top:-1.9%">
+      <ion-item>
+        <ion-label position="floating">First Name</ion-label>
+        <ion-input type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Last Name</ion-label>
+        <ion-input type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Country of Residence</ion-label>
+        <ion-input type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Gender</ion-label>
+        <ion-select slot="end" required>
+          <ion-select-option value="male">Male</ion-select-option>
+          <ion-select-option value="female">Female</ion-select-option>
+          <ion-select-option value="other">Other</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Phone Number</ion-label>
+        <ion-input type="tel" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Email Address</ion-label>
+        <ion-input type="email" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Wedding Type</ion-label>
+        <ion-input type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Partner's Gender</ion-label>
+        <ion-select slot="end" required>
+          <ion-select-option value="male">Male</ion-select-option>
+          <ion-select-option value="female">Female</ion-select-option>
+          <ion-select-option value="other">Other</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <!-- <ion-label>Partner's Gender</ion-label> -->
+        <ion-label position="floating">Groom's Name</ion-label>
+        <ion-input type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <!-- <ion-label>Partner's Gender</ion-label> -->
+        <ion-label position="floating">Bride's Name</ion-label>
+        <ion-input type="text" required></ion-input>
+      </ion-item>
+    </ion-card-content>
+    <ion-button expand="full" color="primary" routerLink="/submit-profile">Create Profile</ion-button>
+  </ion-card>
+</ion-content>

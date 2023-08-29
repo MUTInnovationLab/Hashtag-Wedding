@@ -2,11 +2,17 @@ ion-content {
     --background: #f4f4f4;
   
     ion-card {
-      max-width: 400px;
-      margin: auto;
+    max-width: 600px;
+     margin:auto;
       margin-top: 50px;
       border-radius: 10px;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+
+    //   .mobile{
+    //         margin-left: 30%;
+    //         margin-right: 30%;
+    //         margin-top: 7%;
+    //       }
   
       ion-card-header {
         background-color: var(--ion-color-primary);
@@ -18,18 +24,7 @@ ion-content {
       ion-card-content {
         padding: 20px;
   
-        ion-item {
-          margin-bottom: 15px;
-  
-          ion-label {
-            font-weight: bold;
-          }
-  
-          ion-input {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
-          }
+        
         }
   
         /* Adjust button styles */
@@ -42,22 +37,13 @@ ion-content {
         }
       }
     }
-  }
-  .login-link {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 14px;
-    color: var(--ion-color-primary); /* Use your primary color */
-  }
- 
+  
+
   ion-card-title{
     color:white;
   }
 
-  .register-link {
-    margin-top: 20px;
-    font-size: 14px;
-  }
+ 
   
     a {
       color: var(--ion-color-primary);
@@ -90,6 +76,10 @@ ion-content {
     top:35%;
     left: -35%;
   }
+
+
+
+
   .container2 {
     position: absolute;
     width: 300px;
@@ -172,6 +162,8 @@ ion-content {
     left: 200px;
 
   }
+
+
   .container7 {
     position: absolute;
     width: 250px;
@@ -188,8 +180,45 @@ ion-content {
     left: 1090px;
 
   }
+//   .mobile{
+//     margin-left: 50%;
+//     margin-right: 50%;
+//     margin-top: 7%;
+//   }
+  .header{
+    height:65px;
+    font-size: 30px;
+    font-weight: bolder;
+    text-align: center;
+  }
+  @media(max-width:767px){
+    ion-card{
+        margin-top: 50px !important;
+    ion-card-header{
+         display: contents !important;
+    }
 
-  
+  }
+}
 
- 
-  
+@media(max-width:950px){
+.mobile{
+        display: "none" !important;
+    }
+.header{
+        height:50px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+      }
+      ion-card{
+        margin-top: -3% !important;
+    ion-card-header{
+         display:none;
+    }
+}
+.mobile-only{
+    display:contents !important;
+}
+
+}

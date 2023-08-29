@@ -21,7 +21,7 @@ export class LoginPage implements OnInit {
 
   async login() {
     try {
-      const result = await this.auth.signInWithEmailAndPassword(
+        const result = await this.auth.signInWithEmailAndPassword(
         this.user.email,
         this.user.password
       );
@@ -32,5 +32,4 @@ export class LoginPage implements OnInit {
       console.error('Error logging in:', error);
     }
   }
-
 }
