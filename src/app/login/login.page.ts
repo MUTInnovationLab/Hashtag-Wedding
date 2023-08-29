@@ -25,7 +25,7 @@ export class LoginPage implements OnInit {
       .then(responce => {
         const user = responce.user;
         console.log('User logged in:',user);
-        this.router.navigateByUrl('/home'); // Redirect to home page after login
+        this.router.navigateByUrl('/view-profile'); // Redirect to home page after login
       });
 
       
