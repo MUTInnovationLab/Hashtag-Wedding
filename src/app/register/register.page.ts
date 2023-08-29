@@ -22,7 +22,7 @@ export class RegisterPage implements OnInit {
   ) {}
 
   ngOnInit(){
-    this.createRandomCircles()
+    
   }
 
   async register() {
@@ -39,43 +39,30 @@ export class RegisterPage implements OnInit {
       }
 
       // Register user with email and password
-      const result = await this.auth.createUserWithEmailAndPassword(
-        this.user.email,
-        this.user.password
-      );
-
-      // Store additional user information in Firestore
-      await this.firestore.collection('users').doc(result.user?.uid).set({
+     await this.auth.createUserWithEmailAndPassword(this.user.email,this.user.password)
+     .then(async responce =>{
+       const user={
         name: this.user.name,
         email: this.user.email,
+       }
+     
+      await this.firestore.collection("userDetails").doc(this.user.email).set({
+          user
+        }).then(responce=>{
+          alert("registered");
+          this.router.navigateByUrl("/login")
+        })
       });
 
-      console.log('User registered:', this.user);
-      this.router.navigateByUrl('/login'); // Redirect to login page
+      // Store additional user information in Firestore
+    
+
+     
+      
     } catch (error) {
       console.error('Error registering:', error);
     }
   }
 
-  createRandomCircles() {
-    const numCircles = 20; // Number of circles to create
-
-    for (let i = 0; i < numCircles; i++) {
-      const circle = document.createElement('div');
-      circle.classList.add('circle');
-
-      // Random size between 10px and 30px
-      const size = Math.floor(Math.random() * 21) + 10;
-      circle.style.width = size + 'px';
-      circle.style.height = size + 'px';
-
-      // Random position within the viewport
-      const topPosition = Math.random() * 100;
-      const leftPosition = Math.random() * 100;
-      circle.style.top = topPosition + 'vh';
-      circle.style.left = leftPosition + 'vw';
-
-      document.querySelector('.background-circles')?.appendChild(circle);
-    }
-  }
+  
 }

@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { IonButton } from '@ionic/angular';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-edit',
@@ -49,24 +50,73 @@ export class EditPage implements OnInit {
     wed_type: '',
     c_gender: '',
     groom: '',
-    bride: ''
+    bride: '',
+    couple: '',
+    wed_date: '',
+    days_Till_wed: 0,
+    location: '',
+    minBudget: '',
+    maxBudget: ''
   };
-  constructor() { }
+
+
+  constructor(private dataService:DataService) { }
 
   ngOnInit() {
   }
-  saveProfile() {
-    // Implement the logic to save profile changes
-  }
+
   saveWeddingChanges() {
-  //   this.weddingService.saveWeddingDetails(this.wedding).subscribe(
-  //     response => {
-  //       console.log('Wedding details saved successfully.', response);
-  //     },
-  //     error => {
-  //       console.error('Error saving wedding details.', error);
-  //     }
-  //   );
+    this.wedding.couple=this.wedding.groom + " & " + this.wedding.bride;
+    const combinedData = {
+      user: this.user,
+      wedding: this.wedding
+    };
+    this.dataService.saveDetails(combinedData).then(response => {
+      alert("data saved");
+      this.user = {
+        name: '',
+        surname: '',
+        country: '',
+        email:'',
+        phone:'',
+        gender:''
+    
+       // Other profile fields here
+      };
+      this.wedding = {
+        wed_type: '',
+        c_gender: '',
+        groom: '',
+        bride: '',
+        couple: '',
+        wed_date: '',
+        days_Till_wed: 0,
+        location: '',
+        minBudget: '',
+        maxBudget: ''
+      };
+  
+
+
+    }).catch(error=>{
+      console.error(error.message);
+    })
+  }
+
+  setDate(e:any){
+
+      this.wedding.wed_date=e.detail.value.split('T')[0];
+      this.calculateDaysLeft();
 
   }
+  calculateDaysLeft() {
+    const weddingDate = new Date(this.wedding.wed_date);
+    const today = new Date();
+    
+    const timeDifference = weddingDate.getTime() - today.getTime();
+    const daysLeft = Math.ceil(timeDifference / (1000 * 3600 * 24));
+    
+    this.wedding.days_Till_wed = daysLeft;
+  }
+
 }
