@@ -49,7 +49,7 @@
         <ion-list lines="full">
           <ion-item>
             <ion-label position="stacked">First Name</ion-label>
-            <ion-input type="text" value="John" disabled></ion-input>
+            <ion-input type="text" disabled>{{profileData.user.name}}</ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="stacked">Last Name</ion-label>
@@ -129,17 +129,14 @@
         </ion-list>
       </ion-card-content>
     </ion-card>
-    <!-- <ion-item style="width:100%;height:100px">
-
-    </ion-item> -->
- 
+   
+  </div>
   
   <ion-card class="custom-item" >
     <ion-card-header color="primary" class="Bheader">
       Budgets For The Wedding:
     </ion-card-header>
      <ion-card-content>
-     
           <ion-item>
           <ion-text class="budget1">Minimum Budget:</ion-text>
           <ion-input slot="end" class="money">1 000 0000</ion-input>
@@ -148,70 +145,8 @@
             <ion-text class="budget1">Minimum Budget:</ion-text>
             <ion-input slot="end" class="money">1 000 0000</ion-input>
           </ion-item>
-    
-
     </ion-card-content>
-    <!-- Content for the custom item -->
   </ion-card> 
-</div> 
+ 
 
-</ion-content>
-
-<ion-header>
-  <ion-toolbar>
-    <div class="mobile-only"><ion-title>view Profile</ion-title></div>
-    <ion-buttons>
-      <ion-menu-button>
-
-      </ion-menu-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <div class="container">
-    <div class="gradient-circle"></div>
-  </div>
-  <div class="container2">
-    <div class="gradient-circle2"></div>
-  </div>
-  <div class="container3">
-    <div class="gradient-circle3"></div>
-  </div>
-  <div class="container4">
-    <div class="gradient-circle4"></div>
-  </div>
-  <div class="container5">
-    <div class="gradient-circle5"></div>
-  </div>
-  <div class="container6">
-    <div class="gradient-circle6"></div>
-  </div>
-
-  <div class="container7">
-    <div class="gradient-circle7"></div>
-  </div>
-
-  <ion-card  class="mobile">
-    <ion-card-header class="header">
-      My Profile
-    </ion-card-header>
-    <ion-card-content style="margin-top:-1.9%">
-      <br>
-      <p>First Name :</p>
-      <p>Last Name :</p>
-      <p>Country of Residence :</p>
-      <p>Gender :</p>
-      <p>Phone Number :</p>
-      <p>Email Address :</p>
-      <p>Wedding Type :</p>
-      <p>Partner's Gender :</p>
-      <p>Groom's Name :</p>
-      <p>Bride's Name :</p>
-      
-
-       
-    </ion-card-content>
-    <ion-button expand="full" color="primary" >Edit Profile</ion-button>
-  </ion-card>
 </ion-content>

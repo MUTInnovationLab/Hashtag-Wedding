@@ -40,12 +40,16 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '',
+    loadChildren: () => import('./view-profile/view-profile.module').then( m => m.ViewProfilePageModule)
+  },
+  {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'view-profile',
     pathMatch: 'full'
   },
   {
@@ -64,10 +68,7 @@ const routes: Routes = [
     path: 'edit',
     loadChildren: () => import('./edit/edit.module').then( m => m.EditPageModule)
   },
-  {
-    path: 'view-profile',
-    loadChildren: () => import('./view-profile/view-profile.module').then( m => m.ViewProfilePageModule)
-  },
+ 
   {
     path: 'edit-profile',
     loadChildren: () => import('./edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)
