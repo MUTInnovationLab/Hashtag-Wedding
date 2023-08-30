@@ -9,11 +9,14 @@ export class DataService {
 
   constructor(private firestore:AngularFirestore,private auth:AngularFireAuth) { }
 
-  saveWeddingDetails(email:any, data:any){
-    return this.firestore.collection("userDetails").doc(email).set("")
+  saveDetails(data:any ){
+    return this.firestore.collection("userDetails").doc(data.user.email).update(data);
+  }
+  getUserDoc(data:any ){
+    return this.firestore.collection("userDetails").doc(data.user.email).update(data);
   }
 
-   
+ 
 
 
 }
