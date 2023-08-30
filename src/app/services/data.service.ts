@@ -9,13 +9,13 @@ import { Observable } from 'rxjs';
 })
 export class DataService {
 
-  constructor(private firestore:AngularFirestore,private auth:AngularFireAuth) { }
+  constructor(private firestore:AngularFirestore,private auth:AngularFireAuth) {}
 
   saveDetails(data:any ){
     return this.firestore.collection("userDetails").doc(data.user.email).update(data);
   }
-  getUserDoc(data:any ){
-    return this.firestore.collection("userDetails").doc(data.user.email).update(data);
+  getUserDoc(email: string) {
+    return this.firestore.collection("userDetails").doc(email).get().toPromise();
   }
   getProfileDocument(email: string): Observable<any> {
     return this.firestore.doc(`userDetails/${email}`).valueChanges();

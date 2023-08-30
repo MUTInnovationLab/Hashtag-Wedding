@@ -21,13 +21,14 @@ export class LoginPage implements OnInit {
 
   async login() {
     try {
-        const result = await this.auth.signInWithEmailAndPassword(
-        this.user.email,
-        this.user.password
-      );
+      this.auth.signInWithEmailAndPassword(this.user.email,this.user.password)
+      .then(responce => {
+        const user = responce.user;
+        console.log('User logged in:',user);
+        this.router.navigateByUrl('/view-profile'); // Redirect to home page after login
+      });
 
-      console.log('User logged in:', result.user);
-      this.router.navigateByUrl('/home'); // Redirect to home page after login
+      
     } catch (error) {
       console.error('Error logging in:', error);
     }
