@@ -38,7 +38,14 @@ ion-content {
       }
     }
   
-
+ ion-input{
+   font-family: 'Times New Roman', Times, serif;
+   font-weight: bold;
+ }
+ ion-card-title{
+  font-family: 'Times New Roman', Times, serif;
+  font-weight:bolder;
+ }
   ion-card-title{
     color:white;
   }
@@ -58,7 +65,10 @@ ion-content {
     transform: translateY(-50%);
 
   }
-
+.item-start{
+      --background: #007bff00;
+      margin-right:1.5%;
+}
 
   .container {
     position: absolute;
@@ -120,8 +130,8 @@ ion-content {
     background: radial-gradient(circle, #007bff, #7ab5f0);
     border-radius: 50%;
     position: absolute;
-    top: 80%;
-    left: 1000px
+    top: -10%;
+    left: 800px
   }
   .container5 {
     position: absolute;
@@ -135,7 +145,7 @@ ion-content {
     background: radial-gradient(circle, #007bff, #7ab5f0);
     border-radius: 50%;
     position: absolute;
-    top: 200%;
+    top: 100%;
     left: 600px
   }
 
@@ -151,7 +161,7 @@ ion-content {
     background: radial-gradient(circle, #007bff, #7ab5f0);
     border-radius: 50%;
     position: absolute;
-    top: 200%;
+    top: 150%;
     left: 200px;
 
   }
@@ -231,12 +241,47 @@ ion-content {
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     width: 40%;
-    margin-bottom: 20px; /* Add margin between cards */
-    margin-bottom: -15%;
+    // margin-bottom: 20px; /* Add margin between cards */
+    // margin-bottom: -15%;
   }
 
 .profile-row{
   display:flex;
 
 }
-  
+.grid-start{
+  margin-top: -55px;
+}
+// ion-button{
+//   width: 50px !important; 
+//   height: 50px !important;
+//   border-radius: 50% !important; 
+//   color:red;
+
+//   // --background-color:linear-gradient(to botton, white,blue) !important;
+// }
+ion-button {
+  --background: #cacaca;
+
+  width: 50px !important; 
+  height: 50px !important;
+  // color:red;
+  --color: blue;
+  --border-radius: 50%;
+  --border-color: blue;
+  --border-style: solid;
+  --border-width: 1px;
+  --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+  // --ripple-color: deeppink;
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+
+  font-size:20px;
+}
+// @media(max-width:1000px)
+// {
+//   .profile-row
+//   {
+//     display: "strack";
+//   }
+// }
