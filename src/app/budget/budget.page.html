@@ -1,13 +1,187 @@
-<ion-header [translucent]="true">
+<!-- <ion-header>
   <ion-toolbar>
-    <ion-title>budget</ion-title>
+    <ion-title>Budget Tracker</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">budget</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-grid>
+     
+        <ion-row class="header-row">
+          <ion-col class="item-label">Items</ion-col>
+          <ion-col class="item-label">Budget Amount</ion-col>
+          <ion-col class="item-label">Actual Amount</ion-col>
+        </ion-row>
+
+      
+        <ion-row *ngFor="let item of budgetItems" class="budget-item">
+          <ion-col class="item-label">{{ item.name }}</ion-col>
+          <ion-col>
+            <ion-input [(ngModel)]="item.budgetAmount" type="number"></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-input [(ngModel)]="item.actualAmount" type="number"></ion-input>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content> -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Budget Tracker</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-grid class="budget-table">
+        <!-- Header Row -->
+        <ion-row class="header-row">
+          <ion-col class="item-label">Items</ion-col>
+          <ion-col class="item-label">Budget Amount</ion-col>
+          <ion-col class="item-label">Actual Amount</ion-col>
+        </ion-row>
+
+        <!-- Budget Items (Generated from TypeScript) -->
+        <ion-row *ngFor="let item of budgetItems" class="budget-item">
+          <ion-col >{{ item.name }}</ion-col>
+          <ion-col>
+            <ion-input [(ngModel)]="item.budgetAmount" type="number"></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-input [(ngModel)]="item.actualAmount" type="number"></ion-input>
+          </ion-col>
+        </ion-row>
+
+
+
+
+
+<!-- Additional Budget Items -->
+
+<!-- 
+<ion-row class="budget-item">
+  <ion-col class="item-label">Reception - Venue</ion-col>
+  <ion-col>
+    <ion-input [(ngModel)]="budgetItems[3].budgetAmount" type="number"></ion-input>
+  </ion-col>
+  <ion-col>
+    <ion-input [(ngModel)]="budgetItems[3].actualAmount" type="number"></ion-input>
+  </ion-col>
+</ion-row>
+
+<ion-row class="budget-item">
+  <ion-col class="item-label">Reception - Food</ion-col>
+  <ion-col>
+    <ion-input [(ngModel)]="budgetItems[4].budgetAmount" type="number"></ion-input>
+  </ion-col>
+  <ion-col>
+    <ion-input [(ngModel)]="budgetItems[4].actualAmount" type="number"></ion-input>
+  </ion-col>
+</ion-row>
+
+<ion-row class="budget-item">
+  <ion-col class="item-label">Reception - Cake</ion-col>
+  <ion-col>
+    <ion-input [(ngModel)]="budgetItems[5].budgetAmount" type="number"></ion-input>
+  </ion-col>
+  <ion-col>
+    <ion-input [(ngModel)]="budgetItems[5].actualAmount" type="number"></ion-input>
+  </ion-col>
+</ion-row>
+
+<ion-row class="budget-item">
+  <ion-col class="item-label">Reception - Bar Service</ion-col>
+  <ion-col>
+    <ion-input [(ngModel)]="budgetItems[6].budgetAmount" type="number"></ion-input>
+  </ion-col>
+  <ion-col>
+    <ion-input [(ngModel)]="budgetItems[6].actualAmount" type="number"></ion-input>
+  </ion-col>
+</ion-row> -->
+
+
+
+
+
+
+
+
+
+
+        <!-- Total Budget Row (Calculated from TypeScript) -->
+        <ion-row class="total-row">
+          <ion-col class="item-label">Total Budget</ion-col>
+          <ion-col class="total-amount">{{ totalBudget() | currency:'USD':'symbol':'1.2-2' }}</ion-col>
+          <ion-col class="total-amount">{{ totalActual() | currency:'USD':'symbol':'1.2-2' }}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+
+
+<!-- 
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Budget Tracker</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-grid class="budget-table">
+       
+        <ion-row class="header-row">
+          <ion-col class="item-label">Items</ion-col>
+          <ion-col class="item-label">Budget Amount</ion-col>
+          <ion-col class="item-label">Actual Amount</ion-col>
+        </ion-row>
+
+        <ng-container *ngFor="let item of ceremonyBudgetItems; let i = index">
+          <ion-row class="budget-item">
+            <ion-col class="item-label">{{ item.name }}</ion-col>
+            <ion-col>
+              <ion-input [(ngModel)]="ceremonyBudgetItems[i].budgetAmount" type="number"></ion-input>
+            </ion-col>
+            <ion-col>
+              <ion-input [(ngModel)]="ceremonyBudgetItems[i].actualAmount" type="number"></ion-input>
+            </ion-col>
+          </ion-row>
+        </ng-container>
+
+   
+        <ng-container *ngFor="let item of receptionBudgetItems; let i = index">
+          <ion-row class="budget-item">
+            <ion-col class="item-label">{{ item.name }}</ion-col>
+            <ion-col>
+              <ion-input [(ngModel)]="receptionBudgetItems[i].budgetAmount" type="number"></ion-input>
+            </ion-col>
+            <ion-col>
+              <ion-input [(ngModel)]="receptionBudgetItems[i].actualAmount" type="number"></ion-input>
+            </ion-col>
+          </ion-row>
+        </ng-container>
+
+        
+        <ion-row class="total-row">
+          <ion-col class="item-label">Total Budget</ion-col>
+          <ion-col class="total-amount">{{ totalCeremonyBudget() | currency:'USD':'symbol':'1.2-2' }}</ion-col>
+          <ion-col class="total-amount">{{ totalCeremonyActual() | currency:'USD':'symbol':'1.2-2' }}</ion-col>
+        </ion-row>
+
+        <ion-row class="total-row">
+          <ion-col class="item-label">Total Budget (Reception)</ion-col>
+          <ion-col class="total-amount">{{ totalReceptionBudget() | currency:'USD':'symbol':'1.2-2' }}</ion-col>
+          <ion-col class="total-amount">{{ totalReceptionActual() | currency:'USD':'symbol':'1.2-2' }}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+ -->

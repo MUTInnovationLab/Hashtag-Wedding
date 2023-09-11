@@ -1,0 +1,59 @@
+// .budget-table {
+//     width: 100%;
+//   }
+  
+//   .header-row {
+//     background-color: #f2f2f2;
+//     font-weight: bold;
+//     border: 1px solid #ccc; /* Add a border to the header row */
+//   }
+  
+//   .item-label {
+//     text-align: center;
+//     padding: 10px;
+//     border: 1px solid #ccc; /* Add a border to item labels */
+//   }
+  
+//   .budget-item {
+//     --ion-background-color: transparent;
+//     border: 1px solid #ccc; /* Add a border to budget items */
+//   }
+  
+//   ion-input {
+//     --padding-start: 0;
+//     text-align: center;
+//     border: 1px solid #ccc; /* Add a border to input fields */
+//   }
+  
+//   .total-row {
+//     font-weight: bold;
+//     border: 1px solid #ccc; /* Add a border to the total row */
+//   }
+
+ion-row{
+    border-bottom: 1px solid #ccc;
+}
+.budget-table {
+    width: 100%;
+    border-collapse: collapse; /* This property ensures borders collapse into a single border line */
+    // border: 1px solid #ccc; /* Add a border to the entire table */
+  }
+  
+  .header-row {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .item-label,
+  .budget-item ion-input,
+  .total-row {
+    text-align: center;
+    padding: 10px;
+  }
+  .total-amount{
+    font-weight: bold;
+  }
+  .total-row {
+    font-weight: bold;
+  }
+  
