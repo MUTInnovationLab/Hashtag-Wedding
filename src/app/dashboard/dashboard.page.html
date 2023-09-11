@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+  
+<ion-content [fullscreen]="true" style="--background: url('assets/VV.jpg') no-repeat center / cover;">
+
+  <ion-grid class="center-grid">
+    <ion-row >
+        <ion-col>
+            <div class="image-container">
+                <img src="assets/weddingInfo.png" button (click)="goToViewProfile()">
+              </div>
+        </ion-col>
+
+        <ion-col>
+            <div class="image-container">
+                <img src="assets/budget.png"  button (click)="goToBudget()">
+              </div>
+        </ion-col>
+
+        <ion-col>
+            <div class="image-container">
+                <img src="assets/checklist.png"  button (click)="goToChecklist()">
+              </div>
+        </ion-col>
+
+        <ion-col>
+          <div class="image-container">
+              <img src="assets/lokker.png">
+            </div>
+      </ion-col>
+
+    </ion-row>
+</ion-grid> 
+</ion-content>
