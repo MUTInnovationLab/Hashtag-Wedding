@@ -11,5 +11,9 @@ export class ChecklistPage implements OnInit {
 
   ngOnInit() {
   }
+  selectMonth(month: string) {
+    console.log(`Selected month: ${month}`);
+    // Handle the selected month as needed
+  }
 
 }
