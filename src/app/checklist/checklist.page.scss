@@ -1,3 +1,4 @@
+//Header toolbar
 ion-header ion-toolbar {
     text-align: center;
     
@@ -10,7 +11,7 @@ p{
 
 }
 
-
+//SCROLL DROPDOWN
 .scrollable-list {
     max-height: 60px;
     overflow-y: auto;
@@ -27,8 +28,12 @@ p{
   .custom-center {
     text-align: center;
   }
-  
-  
+  .tc{
+    text-align: center;
+    width: 100%;
+  }
+
+  //CARDS
   ion-card {
     max-width: 600px;
     margin: auto;
@@ -49,11 +54,12 @@ p{
     
   }
 
+  //TABLECARD 
   .tablecard{
     max-width: 900px;
   }
  
-
+//TABLE STYLE
   table {
     width: 100%;
     border-collapse: collapse;
