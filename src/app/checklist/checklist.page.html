@@ -1,13 +1,81 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>checklist</ion-title>
+    <ion-title><p>#Wedding Checklist</p></ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">checklist</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" style="--background: url('assets/ww.jpg') no-repeat center / cover;">
+  
+
+  <ion-card>
+    <ion-card-header>
+     TimeFrame
+    </ion-card-header>
+    <ion-card-content class="ion-text-center"> <!-- Center the content -->
+      <ion-list class="scrollable-list">
+        <ion-item (ionSelect)="selectMonth('12 MONTHS')" class="custom-center"><div class="tc">12 MONTHS</div></ion-item>
+        <ion-item (ionSelect)="selectMonth('10-11 MONTHS')" class="custom-center"><div class="tc">10-11 MONTHS</div></ion-item>
+        <ion-item (ionSelect)="selectMonth('8-9 MONTHS')" class="custom-center"><div class="tc">8-9 MONTHS</div></ion-item>
+        <ion-item (ionSelect)="selectMonth('6-7 MONTHS')" class="custom-center"><div class="tc">6-7 MONTHS</div></ion-item>
+        <ion-item (ionSelect)="selectMonth('4-5 MONTHS')" class="custom-center"><div class="tc">4-5 MONTHS</div></ion-item>
+        <ion-item (ionSelect)="selectMonth('3 MONTHS')" class="custom-center"><div class="tc">3 MONTHS</div></ion-item>
+        <ion-item (ionSelect)="selectMonth('2 MONTHS')" class="custom-center"><div class="tc">2 MONTHS</div></ion-item>
+        <ion-item (ionSelect)="selectMonth('1 MONTH')" class="custom-center"><div class="tc">1 MONTH</div></ion-item>
+        <ion-item (ionSelect)="selectMonth('2 WEEKS')" class="custom-center"><div class="tc">2 WEEKS</div></ion-item>
+        <ion-item (ionSelect)="selectMonth('1 WEEK')" class="custom-center"><div class="tc">1 WEEK</div></ion-item>
+        <ion-item (ionSelect)="selectMonth('THE DAY BEFORE')" class="custom-center"><div class="tc">THE DAY BEFORE</div></ion-item>
+        <ion-item (ionSelect)="selectMonth('WEDDING DAY')" class="custom-center"><div class="tc">WEDDING DAY</div></ion-item>
+        <ion-item (ionSelect)="selectMonth('BEYOND THE WEDDING')" class="custom-center"><div class="tc">BEYOND THE WEDDING</div></ion-item>
+        <!-- Add more months as needed -->
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  
+  
+  <ion-card class="tablecard">
+    <table>
+      <thead>
+          <tr>
+              <th>ITEM</th>
+              <th>ALL<input type="checkbox"></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>GLASSES</td>
+              <td><input type="checkbox"></td>
+          </tr>
+          <tr>
+              <td>BALLOONS</td>
+              <td><input type="checkbox"></td>
+          </tr>
+          <tr>
+              <td>WINE</td>
+              <td><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td>WINE</td>
+            <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <td>WINE</td>
+          <td><input type="checkbox"></td>
+      </tr>
+      <tr>
+        <td>WINE</td>
+        <td><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>WINE</td>
+      <td><input type="checkbox"></td>
+  </tr>
+      </tbody>
+  </table>
+  </ion-card>
+  
+  
+  
+
+
+
 </ion-content>
