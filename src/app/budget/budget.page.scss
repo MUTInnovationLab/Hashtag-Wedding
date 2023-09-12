@@ -40,8 +40,10 @@ ion-row{
   }
   
   .header-row {
-    background-color: #f2f2f2;
+    // background: linear-gradient(to left,#f2f2f2,#007bff,black,#007bff,black,blue);
+    background: linear-gradient(to top, #09203f 0%, #537895 100%);
     font-weight: bold;
+    color:white;
   }
   
   .item-label,
@@ -60,3 +62,21 @@ ion-row{
   //   height: 100%;
   //   background-color:black;
   // }
+
+  ion-col{
+    border-left: 1px solid #ccc;
+  }
+  .topic
+  {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    background-color: #007bff;
+    color:white;
+  }
+ .totals{
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bolder;
+  background-color: #0071e983;
+  color:white;
+
+ }
