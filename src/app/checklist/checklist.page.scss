@@ -7,7 +7,8 @@ ion-header ion-toolbar {
 }
 p{
     font-weight: bold !important;
-    font-size: 24px;
+    font-size: 25px;
+    font-family:'Times New Roman', Times, serif;
 
 }
 
@@ -49,6 +50,7 @@ p{
       font-size: 20px;
       text-align: center;
       font-weight: bold;
+      font-style: italic;
     }
 
     
@@ -75,6 +77,8 @@ th {
     color: white; /* Header text color */
     height: 40px; /* Increase the height of the table header */
     font-size: 18px; /* Increase the font size of the table header */
+    font-style: italic;
+    font-family:'Times New Roman', Times, serif;
 }
 
 tbody tr:nth-child(odd) {
