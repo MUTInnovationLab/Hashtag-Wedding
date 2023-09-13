@@ -15,6 +15,7 @@
           <ion-col class="item-label">Budget Amount</ion-col>
           <ion-col class="item-label">Actual Amount</ion-col>
         </ion-row>
+        <!-- Ceremony: -->
         <ion-row class="topic">
             <ion-col>
           <h4>Ceremony:</h4>
@@ -41,7 +42,7 @@
           </ion-col>
         </ion-row>
 
-<!--		Rental of  tables, chairs,linens,etc. -->
+<!--		Reception: -->
         <ion-row class="topic">
             <ion-col>
           <h4>Reception:</h4>
@@ -68,7 +69,7 @@
           </ion-col>
         </ion-row>
 
-
+<!-- Attire and Beauty Total: -->
 <ion-row class="topic">
     <ion-col>
   <h4> Attire and Beauty:</h4>
@@ -95,7 +96,7 @@
   </ion-col>
 </ion-row>
 
-
+<!-- Photography and Videography: -->
 <ion-row class="topic">
     <ion-col>
   <h4> Photography and Videography:</h4>
@@ -121,29 +122,9 @@
     <ion-input [(ngModel)]="item.actualAmount" type="number"></ion-input>
   </ion-col>
 </ion-row>
-<!-- next row -->
-<!-- <ion-row  class="budget-item">
-  <ion-col >	Videographer's fee</ion-col>
-  <ion-col>
-    <ion-input [(ngModel)]="budgetItems[1].budgetAmount" type="number"></ion-input>
-  </ion-col>
-  <ion-col>
-    <ion-input [(ngModel)]="budgetItems[1].actualAmount" type="number"></ion-input>
-  </ion-col>
-</ion-row> -->
 
-<!-- next row -->
-<!-- <ion-row class="budget-item">
-  <ion-col >	Additional Prints albums or video editing(if desired)</ion-col>
-  <ion-col>
-    <ion-input [(ngModel)]="budgetItems[2].budgetAmount" type="number"></ion-input>
-  </ion-col>
-  <ion-col>
-    <ion-input [(ngModel)]="budgetItems[2].actualAmount" type="number"></ion-input>
-  </ion-col>
-</ion-row> -->
 
-<!-- 		 -->
+<!-- 	Entertainment:	 -->
 
 <ion-row class="topic">
     <ion-col>
@@ -170,40 +151,9 @@
     <ion-input [(ngModel)]="item.actualAmount" type="number"></ion-input>
   </ion-col>
 </ion-row>
-<!-- next row -->
-<!-- <ion-row  class="budget-item">
-  <ion-col >Ceremony music(string quartet, harpist, etc.)</ion-col>
-  <ion-col>
-    <ion-input [(ngModel)]="budgetItems[1].budgetAmount" type="number"></ion-input>
-  </ion-col>
-  <ion-col>
-    <ion-input [(ngModel)]="budgetItems[1].actualAmount" type="number"></ion-input>
-  </ion-col>
-</ion-row> -->
 
-<!-- next row -->
-<!-- <ion-row class="budget-item">
-  <ion-col >	Sound equipment or rentals</ion-col>
-  <ion-col>
-    <ion-input [(ngModel)]="budgetItems[2].budgetAmount" type="number"></ion-input>
-  </ion-col>
-  <ion-col>
-    <ion-input [(ngModel)]="budgetItems[2].actualAmount" type="number"></ion-input>
-  </ion-col>
-</ion-row> -->
 
-<!-- next row -->
-<!-- <ion-row class="budget-item">
-    <ion-col >	Dance floor(if necessary)</ion-col>
-    <ion-col>
-      <ion-input [(ngModel)]="budgetItems[2].budgetAmount" type="number"></ion-input>
-    </ion-col>
-    <ion-col>
-      <ion-input [(ngModel)]="budgetItems[2].actualAmount" type="number"></ion-input>
-    </ion-col>
-  </ion-row> -->
-
-<!--		  -->
+<!--	Stationery and Invitations:	  -->
 
 
 <ion-row class="topic">
@@ -231,42 +181,9 @@
     <ion-input [(ngModel)]="item.actualAmount" type="number"></ion-input>
   </ion-col>
 </ion-row>
-<!-- next row -->
-<!-- <ion-row  class="budget-item">
-  <ion-col> Wedding Invitations</ion-col>
-  <ion-col>
-    <ion-input [(ngModel)]="budgetItems[1].budgetAmount" type="number"></ion-input>
-  </ion-col>
-  <ion-col>
-    <ion-input [(ngModel)]="budgetItems[1].actualAmount" type="number"></ion-input>
-  </ion-col>
-</ion-row> -->
-
-<!-- next row -->
-<!-- <ion-row class="budget-item">
-  <ion-col >RSVP cards</ion-col>
-  <ion-col>
-    <ion-input [(ngModel)]="budgetItems[2].budgetAmount" type="number"></ion-input>
-  </ion-col>
-  <ion-col>
-    <ion-input [(ngModel)]="budgetItems[2].actualAmount" type="number"></ion-input>
-  </ion-col>
-</ion-row> -->
 
 
-<!-- next row -->
-<!-- <ion-row class="budget-item">
-    <ion-col >Thank Your Cards	Postage</ion-col>
-    <ion-col>
-      <ion-input [(ngModel)]="budgetItems[2].budgetAmount" type="number"></ion-input>
-    </ion-col>
-    <ion-col>
-      <ion-input [(ngModel)]="budgetItems[2].actualAmount" type="number"></ion-input>
-    </ion-col>
-  </ion-row> -->
-
-
-<!--					  -->
+<!--			Flowers and Decor Total		  -->
 <ion-row class="topic">
     <ion-col>
     <h4>Flowers and Decor:</h4>
@@ -292,81 +209,8 @@
       <ion-input [(ngModel)]="item.actualAmount" type="number"></ion-input>
     </ion-col>
   </ion-row>
-  <!-- next row -->
-  <!-- <ion-row  class="budget-item">
-    <ion-col > Bridesmaids' bouquets</ion-col>
-    <ion-col>
-      <ion-input [(ngModel)]="budgetItems[1].budgetAmount" type="number"></ion-input>
-    </ion-col>
-    <ion-col>
-      <ion-input [(ngModel)]="budgetItems[1].actualAmount" type="number"></ion-input>
-    </ion-col>
-  </ion-row> -->
-  
-  <!-- next row -->
-  <!-- <ion-row class="budget-item">
-    <ion-col >Boutonnieres and corsages</ion-col>
-    <ion-col>
-      <ion-input [(ngModel)]="budgetItems[2].budgetAmount" type="number"></ion-input>
-    </ion-col>
-    <ion-col>
-      <ion-input [(ngModel)]="budgetItems[2].actualAmount" type="number"></ion-input>
-    </ion-col>
-  </ion-row> -->
-<!-- next row -->
-<!-- <ion-row class="budget-item">
-  <ion-col >	Ceremony decor</ion-col>
-  <ion-col>
-    <ion-input [(ngModel)]="budgetItems[0].budgetAmount" type="number"></ion-input>
-  </ion-col>
-  <ion-col>
-    <ion-input [(ngModel)]="budgetItems[0].actualAmount" type="number"></ion-input>
-  </ion-col>
-</ion-row> -->
-<!-- next row -->
-<!-- <ion-row  class="budget-item">
-  <ion-col > Reception decor</ion-col>
-  <ion-col>
-    <ion-input [(ngModel)]="budgetItems[1].budgetAmount" type="number"></ion-input>
-  </ion-col>
-  <ion-col>
-    <ion-input [(ngModel)]="budgetItems[1].actualAmount" type="number"></ion-input>
-  </ion-col>
-</ion-row> -->
-
-<!-- next row -->
-<!-- <ion-row class="budget-item">
-  <ion-col >	Aisle runner</ion-col>
-  <ion-col>
-    <ion-input [(ngModel)]="budgetItems[2].budgetAmount" type="number"></ion-input>
-  </ion-col>
-  <ion-col>
-    <ion-input [(ngModel)]="budgetItems[2].actualAmount" type="number"></ion-input>
-  </ion-col>
-</ion-row> -->
-
-<!-- next row -->
-<!-- <ion-row  class="budget-item">
-    <ion-col >	Flower Petals</ion-col>
-    <ion-col>
-      <ion-input [(ngModel)]="budgetItems[1].budgetAmount" type="number"></ion-input>
-    </ion-col>
-    <ion-col>
-      <ion-input [(ngModel)]="budgetItems[1].actualAmount" type="number"></ion-input>
-    </ion-col>
-  </ion-row> -->
-  
-  <!-- next row -->
-  <!-- <ion-row class="budget-item">
-    <ion-col >Altar or arch decorations</ion-col>
-    <ion-col>
-      <ion-input [(ngModel)]="budgetItems[2].budgetAmount" type="number"></ion-input>
-    </ion-col>
-    <ion-col>
-      <ion-input [(ngModel)]="budgetItems[2].actualAmount" type="number"></ion-input>
-    </ion-col>
-  </ion-row> -->
-  <!-- 			-->
+ 
+  <!-- 	Wedding Rings:		-->
   <ion-row class="topic">
       <ion-col>
       <h4>Wedding Rings:</h4>
@@ -393,29 +237,7 @@
         <ion-input [(ngModel)]="item.actualAmount" type="number"></ion-input>
       </ion-col>
     </ion-row>
-    <!-- next row -->
-    <!-- <ion-row  class="budget-item">
-      <ion-col >Groom's wedding ring</ion-col>
-      <ion-col>
-        <ion-input [(ngModel)]="budgetItems[1].budgetAmount" type="number"></ion-input>
-      </ion-col>
-      <ion-col>
-        <ion-input [(ngModel)]="budgetItems[1].actualAmount" type="number"></ion-input>
-      </ion-col>
-    </ion-row> -->
-    
-    <!-- next row -->
-    <!-- <ion-row class="budget-item">
-      <ion-col >Engraving (if desired)</ion-col>
-      <ion-col>
-        <ion-input [(ngModel)]="budgetItems[2].budgetAmount" type="number"></ion-input>
-      </ion-col>
-      <ion-col>
-        <ion-input [(ngModel)]="budgetItems[2].actualAmount" type="number"></ion-input>
-      </ion-col>
-    </ion-row> -->
-
-    <!-- 	-->
+  <!-- Transportation:	 -->
     <ion-row class="topic">
     <ion-col>
         <h4>Transportation:	</h4>
@@ -441,21 +263,8 @@
           <ion-input [(ngModel)]="item.actualAmount" type="number"></ion-input>
         </ion-col>
       </ion-row>
-      <!-- next row -->
-      <!-- <ion-row  class="budget-item">
-        <ion-col >Transportation for the wedding party or guests(if necessary)</ion-col>
-        <ion-col>
-          <ion-input [(ngModel)]="budgetItems[1].budgetAmount" type="number"></ion-input>
-        </ion-col>
-        <ion-col>
-          <ion-input [(ngModel)]="budgetItems[1].actualAmount" type="number"></ion-input>
-        </ion-col>
-      </ion-row> -->
-      
-      
-      <!-- 
-          	
-       -->
+     
+<!-- Wedding Planner/Coordinator Total: -->
        <ion-row class="topic">
        <ion-col>
           <h4>Wedding Planner/Coordinator:</h4>
@@ -481,22 +290,7 @@
     <ion-input [(ngModel)]="item.actualAmount" type="number"></ion-input>
   </ion-col>
 </ion-row>
-<!-- next row -->
-<!-- <ion-row  class="budget-item">
-  <ion-col >	Day of coordination services (if not included)</ion-col>
-  <ion-col>
-    <ion-input [(ngModel)]="budgetItems[1].budgetAmount" type="number"></ion-input>
-  </ion-col>
-  <ion-col>
-    <ion-input [(ngModel)]="budgetItems[1].actualAmount" type="number"></ion-input>
-  </ion-col>
-</ion-row> -->
-
-
-
-<!-- 
-  		
- -->
+<!-- Miscellaneous Expenses: -->
  <ion-row class="topic">
     <ion-col>
     <h4>Miscellaneous Expenses:</h4>
@@ -522,41 +316,6 @@
     <ion-input [(ngModel)]="item.actualAmount" type="number"></ion-input>
   </ion-col>
 </ion-row>
-<!-- next row -->
-<!-- <ion-row  class="budget-item">
-  <ion-col >	Guestbook</ion-col>
-  <ion-col>
-    <ion-input [(ngModel)]="budgetItems[1].budgetAmount" type="number"></ion-input>
-  </ion-col>
-  <ion-col>
-    <ion-input [(ngModel)]="budgetItems[1].actualAmount" type="number"></ion-input>
-  </ion-col>
-</ion-row> -->
-
-<!-- next row -->
-<!-- <ion-row class="budget-item">
-  <ion-col >Gifts for the wedding party and parents</ion-col>
-  <ion-col>
-    <ion-input [(ngModel)]="budgetItems[2].budgetAmount" type="number"></ion-input>
-  </ion-col>
-  <ion-col>
-    <ion-input [(ngModel)]="budgetItems[2].actualAmount" type="number"></ion-input>
-  </ion-col>
-</ion-row> -->
-
-
-
-<!-- next row -->
-<!-- <ion-row class="budget-item">
-    <ion-col >Accommodations for out-of-town guests</ion-col>
-    <ion-col>
-      <ion-input [(ngModel)]="budgetItems[2].budgetAmount" type="number"></ion-input>
-    </ion-col>
-    <ion-col>
-      <ion-input [(ngModel)]="budgetItems[2].actualAmount" type="number"></ion-input>
-    </ion-col>
-  </ion-row> -->
-  
 
         <!-- Total Budget Row (Calculated from TypeScript) -->
         <!-- <ion-row class="total-row">
