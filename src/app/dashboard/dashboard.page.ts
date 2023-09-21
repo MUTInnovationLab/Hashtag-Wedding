@@ -28,4 +28,8 @@ export class DashboardPage implements OnInit {
   goToChecklist() {
     this.navController.navigateForward("/checklist");
   }
+
+  goToLookerDashboard(){
+    this.navController.navigateForward("/looker-dashboard");
+  }
 }
