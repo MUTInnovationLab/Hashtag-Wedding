@@ -186,7 +186,10 @@ selectedTimeFrame: string = '';
   ngOnInit() {
   }
 
-
+  shouldDisplayCard(): boolean {
+    // Check if selectedTimeFrame matches any item in the checklist
+    return this.checklist.some(item => item.timeFrame === this.selectedTimeFrame);
+  }
   selectMonth(timeFrame: string) {
     this.selectedTimeFrame = timeFrame;
   }

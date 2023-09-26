@@ -33,31 +33,29 @@
   
   
   
-  <ion-card class="tablecard">
-    <ion-card class="tablecard">
-      <table>
-        <thead>
-          <tr>
-            <th>ITEM</th>
-            <th>ALL<input type="checkbox"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <ng-container *ngFor="let timeFrameItem of checklist">
-            <!-- Check if the time frame matches the selected time frame -->
-            <ng-container *ngIf="timeFrameItem.timeFrame === selectedTimeFrame">
-              <!-- Iterate over the checklist items for the selected time frame -->
-              <tr *ngFor="let checklistItem of timeFrameItem.checklist">
-                <td>{{ checklistItem.name }}</td>
-                <td><input type="checkbox" [(ngModel)]="checklistItem.checked"></td>
-              </tr>
-            </ng-container>
+
+  <ion-card class="tablecard" *ngIf="shouldDisplayCard()">
+    <table>
+      <thead>
+        <tr>
+          <th>{{ selectedTimeFrame }}</th>
+          <th>ALL<input type="checkbox"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let timeFrameItem of checklist">
+          <!-- Check if the time frame matches the selected time frame -->
+          <ng-container *ngIf="timeFrameItem.timeFrame === selectedTimeFrame">
+            <!-- Iterate over the checklist items for the selected time frame -->
+            <tr *ngFor="let checklistItem of timeFrameItem.checklist">
+              <td>{{ checklistItem.name }}</td>
+              <td><input type="checkbox" [(ngModel)]="checklistItem.checked"></td>
+            </tr>
           </ng-container>
-        </tbody>
-      </table>
-    </ion-card>
-    
-  <br>
+        </ng-container>
+      </tbody>
+    </table>
+    <br>
   <button class="continue-application">
     <div>
         <div class="pencil"></div>
@@ -73,6 +71,11 @@
     Confrim Checklist 
 </button>
   </ion-card>
+  
+  
+  
+  
+ 
   
   
  
