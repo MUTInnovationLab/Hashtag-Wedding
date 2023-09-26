@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'budget',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -47,7 +47,8 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./budget/budget.module').then( m => m.BudgetPageModule)
-  },  {
+  },
+  {
     path: 'looker-dashboard',
     loadChildren: () => import('./looker-dashboard/looker-dashboard.module').then( m => m.LookerDashboardPageModule)
   },
