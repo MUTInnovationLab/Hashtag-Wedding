@@ -39,22 +39,20 @@
       <thead>
         <tr>
           <th>{{ selectedTimeFrame }}</th>
-          <th>ALL<input type="checkbox"></th>
+          <th>
+            ALL
+            <input type="checkbox" [(ngModel)]="checkAll" (change)="toggleAllCheckboxesInCurrentTimeFrame()">
+          </th>
         </tr>
       </thead>
       <tbody>
-        <ng-container *ngFor="let timeFrameItem of checklist">
-          <!-- Check if the time frame matches the selected time frame -->
-          <ng-container *ngIf="timeFrameItem.timeFrame === selectedTimeFrame">
-            <!-- Iterate over the checklist items for the selected time frame -->
-            <tr *ngFor="let checklistItem of timeFrameItem.checklist">
-              <td>{{ checklistItem.name }}</td>
-              <td><input type="checkbox" [(ngModel)]="checklistItem.checked"></td>
-            </tr>
-          </ng-container>
-        </ng-container>
+        <tr *ngFor="let checklistItem of getChecklistItemsForSelectedTimeFrame()">
+          <td>{{ checklistItem.name }}</td>
+          <td><input type="checkbox" [(ngModel)]="checklistItem.checked"></td>
+        </tr>
       </tbody>
     </table>
+    
     <br>
   <button class="continue-application">
     <div>

@@ -180,6 +180,7 @@ checklist: { timeFrame: string, checklist: { name: string, checked: boolean }[] 
 
 selectedTimeFrame: string = '';
 
+  checkAll: boolean = false; // Track the state of the "ALL" checkbox
 
   constructor() { }
 
@@ -192,6 +193,28 @@ selectedTimeFrame: string = '';
   }
   selectMonth(timeFrame: string) {
     this.selectedTimeFrame = timeFrame;
+  }
+
+  // Add a method to toggle the state of all checkboxes within the current timeframe
+ // Create a method to get the checklist items for the selected timeframe
+  getChecklistItemsForSelectedTimeFrame(): any[] {
+    const selectedTimeFrameItem = this.checklist.find(
+      (item) => item.timeFrame === this.selectedTimeFrame
+    );
+
+    return selectedTimeFrameItem ? selectedTimeFrameItem.checklist : [];
+  }
+
+  // Add a method to toggle the state of all checkboxes for the selected timeframe
+  toggleAllCheckboxesInCurrentTimeFrame() {
+    const selectedTimeFrameChecklist = this.getChecklistItemsForSelectedTimeFrame();
+
+    if (selectedTimeFrameChecklist) {
+      // Set the state of individual checkboxes for the selected timeframe based on checkAll
+      selectedTimeFrameChecklist.forEach((checklistItem) => {
+        checklistItem.checked = this.checkAll;
+      });
+    }
   }
   
 
