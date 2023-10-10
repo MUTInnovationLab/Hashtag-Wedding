@@ -45,7 +45,7 @@ const routes: Routes = [
     loadChildren: () => import('./checklist/checklist.module').then( m => m.ChecklistPageModule)
   },
   {
-    path: '',
+    path: 'budget',
     loadChildren: () => import('./budget/budget.module').then( m => m.BudgetPageModule)
   },
   {
