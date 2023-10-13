@@ -12,69 +12,51 @@
 
   <ion-card>
     <ion-card-header>
-     TimeFrame
+      TimeFrame
     </ion-card-header>
     <ion-card-content class="ion-text-center"> <!-- Center the content -->
       <ion-list class="scrollable-list">
-        <ion-item (ionSelect)="selectMonth('12 MONTHS')" class="custom-center"><div class="tc">12 MONTHS</div></ion-item>
-        <ion-item (ionSelect)="selectMonth('10-11 MONTHS')" class="custom-center"><div class="tc">10-11 MONTHS</div></ion-item>
-        <ion-item (ionSelect)="selectMonth('8-9 MONTHS')" class="custom-center"><div class="tc">8-9 MONTHS</div></ion-item>
-        <ion-item (ionSelect)="selectMonth('6-7 MONTHS')" class="custom-center"><div class="tc">6-7 MONTHS</div></ion-item>
-        <ion-item (ionSelect)="selectMonth('4-5 MONTHS')" class="custom-center"><div class="tc">4-5 MONTHS</div></ion-item>
-        <ion-item (ionSelect)="selectMonth('3 MONTHS')" class="custom-center"><div class="tc">3 MONTHS</div></ion-item>
-        <ion-item (ionSelect)="selectMonth('2 MONTHS')" class="custom-center"><div class="tc">2 MONTHS</div></ion-item>
-        <ion-item (ionSelect)="selectMonth('1 MONTH')" class="custom-center"><div class="tc">1 MONTH</div></ion-item>
-        <ion-item (ionSelect)="selectMonth('2 WEEKS')" class="custom-center"><div class="tc">2 WEEKS</div></ion-item>
-        <ion-item (ionSelect)="selectMonth('1 WEEK')" class="custom-center"><div class="tc">1 WEEK</div></ion-item>
-        <ion-item (ionSelect)="selectMonth('THE DAY BEFORE')" class="custom-center"><div class="tc">THE DAY BEFORE</div></ion-item>
-        <ion-item (ionSelect)="selectMonth('WEDDING DAY')" class="custom-center"><div class="tc">WEDDING DAY</div></ion-item>
-        <ion-item (ionSelect)="selectMonth('BEYOND THE WEDDING')" class="custom-center"><div class="tc">BEYOND THE WEDDING</div></ion-item>
+        <a class="custom-center time-frame-link" (click)="selectMonth('12 MONTHS')" class="custom-center"><div class="tc">12 MONTHS</div></a>
+        <a class="custom-center time-frame-link" (click)="selectMonth('10-11 MONTHS')" class="custom-center"><div class="tc">10-11 MONTHS</div></a>
+        <a class="custom-center time-frame-link" (click)="selectMonth('8-9 MONTHS')" class="custom-center"><div class="tc">8-9 MONTHS</div></a>
+        <a class="custom-center time-frame-link" (click)="selectMonth('6-7 MONTHS')" class="custom-center"><div class="tc">6-7 MONTHS</div></a>
+        <a class="custom-center time-frame-link" (click)="selectMonth('4-5 MONTHS')" class="custom-center"><div class="tc">4-5 MONTHS</div></a>
+        <a class="custom-center time-frame-link" (click)="selectMonth('3 MONTHS')" class="custom-center"><div class="tc">3 MONTHS</div></a>
+        <a class="custom-center time-frame-link" (click)="selectMonth('2 MONTHS')" class="custom-center"><div class="tc">2 MONTHS</div></a>
+        <a class="custom-center time-frame-link" (click)="selectMonth('1 MONTH')" class="custom-center"><div class="tc">1 MONTH</div></a>
+        <a class="custom-center time-frame-link" (click)="selectMonth('2 WEEKS')" class="custom-center"><div class="tc">2 WEEKS</div></a>
+        <a class="custom-center time-frame-link" (click)="selectMonth('1 WEEK')" class="custom-center"><div class="tc">1 WEEK</div></a>
+        <a class="custom-center time-frame-link" (click)="selectMonth('THE DAY BEFORE')" class="custom-center"><div class="tc">THE DAY BEFORE</div></a>
+        <a class="custom-center time-frame-link" (click)="selectMonth('WEDDING DAY')" class="custom-center"><div class="tc">WEDDING DAY</div></a>
+        <a class="custom-center time-frame-link" (click)="selectMonth('BEYOND THE WEDDING')" class="custom-center"><div class="tc">BEYOND THE WEDDING</div></a>
         <!-- Add more months as needed -->
       </ion-list>
     </ion-card-content>
   </ion-card>
   
   
-  <ion-card class="tablecard">
+  
+
+  <ion-card class="tablecard" *ngIf="shouldDisplayCard()">
     <table>
       <thead>
-          <tr>
-              <th>ITEM</th>
-              <th>ALL<input type="checkbox"></th>
-          </tr>
+        <tr>
+          <th>{{ selectedTimeFrame }}</th>
+          <th>
+            ALL
+            <input type="checkbox" [(ngModel)]="checkAll" (change)="toggleAllCheckboxesInCurrentTimeFrame()">
+          </th>
+        </tr>
       </thead>
       <tbody>
-          <tr>
-              <td>GLASSES</td>
-              <td><input type="checkbox"></td>
-          </tr>
-          <tr>
-              <td>BALLOONS</td>
-              <td><input type="checkbox"></td>
-          </tr>
-          <tr>
-              <td>WINE</td>
-              <td><input type="checkbox"></td>
-          </tr>
-          <tr>
-            <td>WINE</td>
-            <td><input type="checkbox"></td>
+        <tr *ngFor="let checklistItem of getChecklistItemsForSelectedTimeFrame()">
+          <td>{{ checklistItem.name }}</td>
+          <td><input type="checkbox" [(ngModel)]="checklistItem.checked"></td>
         </tr>
-        <tr>
-          <td>WINE</td>
-          <td><input type="checkbox"></td>
-      </tr>
-      <tr>
-        <td>WINE</td>
-        <td><input type="checkbox"></td>
-    </tr>
-    <tr>
-      <td>WINE</td>
-      <td><input type="checkbox"></td>
-  </tr>
       </tbody>
-  </table>
-  <br>
+    </table>
+    
+    <br>
   <button class="continue-application">
     <div>
         <div class="pencil"></div>
@@ -90,6 +72,11 @@
     Confrim Checklist 
 </button>
   </ion-card>
+  
+  
+  
+  
+ 
   
   
  

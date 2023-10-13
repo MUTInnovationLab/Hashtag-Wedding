@@ -35,7 +35,7 @@
                 <h4>R88543</h4>
             </ion-col>
           </ion-row>
-        <ion-row *ngFor="let item of budgetItems" class="budget-item">
+        <ion-row *ngFor="let item of budget['Ceremony']" class="budget-item">
           <ion-col >{{ item.name }}</ion-col>
           <ion-col>
             <ion-input [(ngModel)]="item.budgetAmount" type="number"></ion-input>
@@ -62,7 +62,7 @@
                 <h4>R88543</h4>
             </ion-col>
           </ion-row>
-        <ion-row *ngFor="let reception of receptionBudgetItems" class="budget-item">
+        <ion-row *ngFor="let reception of budget['receptionBudget']" class="budget-item">
           <ion-col > {{reception.name}}</ion-col>
           <ion-col>
             <ion-input [(ngModel)]="reception.budgetAmount" type="number"></ion-input>
@@ -89,7 +89,7 @@
         <h4>R88543</h4>
     </ion-col>
   </ion-row>
-<ion-row *ngFor="let item of AttireBeautyItems" class="budget-item">
+<ion-row *ngFor="let item of budget['AttireBeauty']" class="budget-item">
   <ion-col >	{{item.name}}</ion-col>
   <ion-col>
     <ion-input [(ngModel)]="item.budgetAmount" type="number"></ion-input>
@@ -116,7 +116,7 @@
         <h4>R88543</h4>
     </ion-col>
   </ion-row>
-<ion-row *ngFor="let item of  PhotographyandVideographyItems" class="budget-item">
+<ion-row *ngFor="let item of  budget['PhotographyandVideography']" class="budget-item">
   <ion-col >{{item.name}}</ion-col>
   <ion-col>
     <ion-input [(ngModel)]="item.budgetAmount" type="number"></ion-input>
@@ -145,7 +145,7 @@
         <h4>R88543</h4>
     </ion-col>
   </ion-row>
-<ion-row *ngFor="let item of EntertainmentItems" class="budget-item">
+<ion-row *ngFor="let item of budget['Entertainment']" class="budget-item">
   <ion-col >{{item.name}}</ion-col>
   <ion-col>
     <ion-input [(ngModel)]="item.budgetAmount" type="number"></ion-input>
@@ -175,7 +175,7 @@
       <h4>R88543</h4>
   </ion-col>
 </ion-row>
-<ion-row *ngFor="let item of StationeryandInvitationsItems" class="budget-item">
+<ion-row *ngFor="let item of budget['StationeryandInvitations']" class="budget-item">
   <ion-col >{{item.name}}</ion-col>
   <ion-col>
     <ion-input [(ngModel)]="item.budgetAmount" type="number"></ion-input>
@@ -203,7 +203,7 @@
         <h4>R88543</h4>
     </ion-col>
   </ion-row>
-  <ion-row *ngFor="let item of FlowersandDecorItems" class="budget-item">
+  <ion-row *ngFor="let item of budget['FlowersandDecor']" class="budget-item">
     <ion-col >{{item.name}}</ion-col>
     <ion-col>
       <ion-input [(ngModel)]="item.budgetAmount" type="number"></ion-input>
@@ -231,7 +231,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row *ngFor="let item of  WeddingRingsItems" class="budget-item">
+    <ion-row *ngFor="let item of  budget['WeddingRings']" class="budget-item">
       <ion-col >{{item.name}}</ion-col>
       <ion-col>
         <ion-input [(ngModel)]="item.budgetAmount" type="number"></ion-input>
@@ -257,7 +257,7 @@
             <h4>R88543</h4>
         </ion-col>
       </ion-row>
-      <ion-row *ngFor="let item of TransportationItems" class="budget-item">
+      <ion-row *ngFor="let item of budget['Transportation']" class="budget-item">
         <ion-col > {{item.name}}</ion-col>
         <ion-col>
           <ion-input [(ngModel)]="item.budgetAmount" type="number"></ion-input>
@@ -284,7 +284,7 @@
       <h4>R88543</h4>
   </ion-col>
 </ion-row>
-<ion-row *ngFor="let item of WeddingPlannerItems" class="budget-item">
+<ion-row *ngFor="let item of budget['WeddingPlanner']" class="budget-item">
   <ion-col >{{item.name}}</ion-col>
   <ion-col>
     <ion-input [(ngModel)]="item.budgetAmount" type="number"></ion-input>
@@ -310,7 +310,7 @@
       <h4>R88543</h4>
   </ion-col>
 </ion-row>
-<ion-row *ngFor="let item of MiscellaneousExpensesItems" class="budget-item">
+<ion-row *ngFor="let item of budget['MiscellaneousExpenses']" class="budget-item">
   <ion-col >	{{item.name}}</ion-col>
   <ion-col>
     <ion-input [(ngModel)]="item.budgetAmount" type="number"></ion-input>
@@ -327,6 +327,10 @@
           <ion-col class="total-amount">{{ totalActual() | currency:'USD':'symbol':'1.2-2' }}</ion-col>
         </ion-row> -->
       </ion-grid>
+
+      <ion-item style="height:70px" no-line>
+        <ion-button slot=end style="height:50px;width:150px;color:lightgreen"  (click)=addOrUpdateBudget()><h1 style="font-weight:25px">+</h1>Submit</ion-button>
+      </ion-item>
     </ion-card-content>
   </ion-card>
 </ion-content>
