@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AlertController } from '@ionic/angular';
 interface checlistItem {
   name: string;
   checked: boolean;
@@ -192,7 +193,7 @@ selectedTimeFrame: string = '';
 
   checkAll: boolean = false; 
 
-  constructor(private firestore: AngularFirestore) { }
+  constructor(private firestore: AngularFirestore,private alertController: AlertController) { }
 
 
   saveChecklistToFirestore(sectionName: string, items: { name: string; checked: boolean }[]) {
@@ -256,8 +257,21 @@ selectedTimeFrame: string = '';
       this.saveChecklistToFirestore(item.timeFrame, item.checklist);
     });
   
-    alert('Successfully added into the database');
+    this.presentAlert();
   }
+
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Alert',
+      subHeader: 'Checklist Marked!!!',
+      message: 'Thanks for Selecting your checklist choice it will be updated on your profile',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
   
 //-----------------------------------------------------------------------------------------------------------
 readFromDatabase(){
