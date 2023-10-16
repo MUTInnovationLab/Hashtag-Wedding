@@ -1,4 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+interface checlistItem {
+  name: string;
+  checked: boolean;
+  
+}
+
+interface checklist {
+  [key: string]: checlistItem[];
+}
 
 @Component({
   selector: 'app-checklist',
@@ -182,10 +192,92 @@ selectedTimeFrame: string = '';
 
   checkAll: boolean = false; 
 
-  constructor() { }
+  constructor(private firestore: AngularFirestore) { }
+
+
+  saveChecklistToFirestore(sectionName: string, items: { name: string; checked: boolean }[]) {
+    const sectionData: { [key: string]: { checked: boolean } } = {};
+    
+    items.forEach(item => {
+      sectionData[item.name] = { checked: item.checked };
+    });
+  
+    this.firestore.collection('allLists').doc(sectionName).set({ items: sectionData }, { merge: true })
+      .then(() => console.log(`${sectionName} section saved/updated successfully`))
+      .catch(error => console.error(`Error saving/updating ${sectionName} section:`, error));
+  
+    console.log('Budget saved to Firestore');
+  }
+
+
+  loadChecklistFromFirestoreById(sectionName: string) {
+    try {
+      this.firestore.collection('allLists').doc(sectionName).get().subscribe(
+        (doc: any) => {
+          const sectionData = doc.data().items;
+  
+          if (sectionData) {
+            console.log('Section Name:', sectionName);
+            console.log('Section Data:', sectionData);
+            this.checklist = this.checklist.map(item => {
+              if (item.timeFrame === sectionName) {
+                item.checklist = Object.keys(sectionData).map(key => ({
+                  name: key,
+                  checked: sectionData[key].checked
+                }));
+              }
+              return item;
+            });
+          }
+          console.log('Budget loaded from Firestore:', this.checklist);
+        },
+        (error: any) => {
+          console.error('Error loading budget from Firestore:', error);
+        }
+      );
+    } catch (error) {
+      console.error('Error in try block:', error);
+    }
+  }
+  
+
+  
+  
 
   ngOnInit() {
+    // this.loadBudgetFromFirestores();
+
+    this.readFromDatabase();
   }
+  
+  // ----------------------------------------------------------------------------------------------------------
+  addOrUpdateBudget() {
+    this.checklist.forEach(item => {
+      this.saveChecklistToFirestore(item.timeFrame, item.checklist);
+    });
+  
+    alert('Successfully added into the database');
+  }
+  
+//-----------------------------------------------------------------------------------------------------------
+readFromDatabase(){
+  this.loadChecklistFromFirestoreById('12 MONTHS');
+  this.loadChecklistFromFirestoreById('10-11 MONTHS');
+  this.loadChecklistFromFirestoreById('8-9 MONTHS');
+  this.loadChecklistFromFirestoreById('6-7 MONTHS');
+  this.loadChecklistFromFirestoreById('4-5 MONTHS');
+  this.loadChecklistFromFirestoreById('3 MONTHS');
+  this.loadChecklistFromFirestoreById('2 MONTHS');
+  this.loadChecklistFromFirestoreById('1 MONTH');
+  this.loadChecklistFromFirestoreById('2 WEEKS');
+  this.loadChecklistFromFirestoreById('1 WEEK');
+  this.loadChecklistFromFirestoreById('THE DAY BEFORE');
+  this.loadChecklistFromFirestoreById('WEDDING DAY');
+  this.loadChecklistFromFirestoreById('BEYOND THE WEDDING');
+  
+  }
+
+
 
   shouldDisplayCard(): boolean {
     // Check if selectedTimeFrame matches any item in the checklist
