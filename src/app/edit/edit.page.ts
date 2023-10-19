@@ -113,7 +113,7 @@ export class EditPage implements OnInit {
   async getUserDoc() {
     try {
       const user = await this.auth.currentUser;
-      alert(user?.email);
+     // alert(user?.email);
       if (user && user.email) {
         const docSnapshot = await this.dataService.getUserDoc(user.email);
   

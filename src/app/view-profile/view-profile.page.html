@@ -50,31 +50,31 @@
         <ion-list lines="full">
           <ion-item>
             <ion-label position="stacked">First Name</ion-label>
-            <ion-input type="text" disabled>Doe</ion-input>
+            <ion-input type="text" disabled  name="name" [(ngModel)]="userData?.user.name"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="stacked">Last Name</ion-label>
-            <ion-input type="text" disabled>John</ion-input>
+            <ion-input type="text" disabled [(ngModel)]="userData?.user.surname" name="LastName"></ion-input>
           </ion-item>
           
           <ion-item>
             <ion-label position="stacked">Country of Residence</ion-label>
-            <ion-input type="text" disabled>United States</ion-input>
+            <ion-input type="text" disabled Last [(ngModel)]="userData?.user.country"></ion-input>
           </ion-item>
           
           <ion-item>
             <ion-label position="stacked">Gender</ion-label>
-            <ion-input type="text" disabled>male</ion-input>
+            <ion-input type="text" disabled [(ngModel)]="userData?.user.gender"></ion-input>
           </ion-item>
           
           <ion-item>
             <ion-label position="stacked">Phone</ion-label>
-            <ion-input type="tel" disabled>+1234567890</ion-input>
+            <ion-input type="tel" disabled [(ngModel)]="userData?.user.phone"></ion-input>
           </ion-item>
           
           <ion-item>
             <ion-label position="stacked">Email</ion-label>
-            <ion-input type="email" disabled>john.doe@example.com</ion-input>
+            <ion-input type="email" disabled [(ngModel)]="userData?.user.email"></ion-input>
           </ion-item>
         
         </ion-list>
@@ -90,22 +90,22 @@
             
           <ion-item>
             <ion-label position="stacked">Wedding Type</ion-label>
-            <ion-input type="text" disabled>Outdoor</ion-input>
+            <ion-input type="text" disabled [(ngModel)]="userData?.wedding.wed_type"></ion-input>
           </ion-item>
           
           <ion-item>
             <ion-label position="stacked">Partner Gender</ion-label>
-            <ion-input type="text"  disabled>Female</ion-input>
+            <ion-input type="text"  disabled [(ngModel)]="userData?.wedding.c_gender"></ion-input>
           </ion-item>
           
           <ion-item>
             <ion-label position="stacked">Groom</ion-label>
-            <ion-input type="text" disabled>John Doe</ion-input>
+            <ion-input type="text" disabled [(ngModel)]="userData?.wedding.groom"></ion-input>
           </ion-item>
           
           <ion-item>
             <ion-label position="stacked">Bride</ion-label>
-            <ion-input type="text"  disabled>Jane Smith</ion-input>
+            <ion-input type="text"  disabled [(ngModel)]="userData?.wedding.bride"></ion-input>
           </ion-item>
 
           <!-- <ion-item>
@@ -115,11 +115,11 @@
           
           <ion-item >
             <ion-label position="stacked" style="margin-top:-15">Wedding Date</ion-label>
-            <ion-input type="text" disabled>10/09/2023</ion-input>
+            <ion-input type="text" disabled [(ngModel)]="userData?.wedding.wed_date"></ion-input>
             
             <ion-label slot="end" style="margin-top:-15">
             <ion-label position="stacked">Days till Weddings</ion-label>
-            <ion-input type="text"  disabled>5</ion-input>
+            <ion-input type="text" [(ngModel)]="userData?.wedding.days_Till_wed"></ion-input>
             </ion-label>
           </ion-item>
           
@@ -130,7 +130,7 @@
           
           <ion-item>
             <ion-label position="stacked">Location</ion-label>
-            <ion-input type="text"  disabled>Cape Town</ion-input>
+            <ion-input type="text"  disabled [(ngModel)]="userData?.wedding.location"></ion-input>
           </ion-item>
         </ion-list>
       </ion-card-content>
