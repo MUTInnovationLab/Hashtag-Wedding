@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AlertController } from '@ionic/angular';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 interface checlistItem {
   name: string;
   checked: boolean;
@@ -193,22 +194,10 @@ selectedTimeFrame: string = '';
 
   checkAll: boolean = false; 
 
-  constructor(private firestore: AngularFirestore,private alertController: AlertController) { }
+  constructor(private firestore: AngularFirestore,private alertController: AlertController, private afAuth: AngularFireAuth) { }
 
 
-  saveChecklistToFirestore(sectionName: string, items: { name: string; checked: boolean }[]) {
-    const sectionData: { [key: string]: { checked: boolean } } = {};
-    
-    items.forEach(item => {
-      sectionData[item.name] = { checked: item.checked };
-    });
-  
-    this.firestore.collection('allLists').doc(sectionName).set({ items: sectionData }, { merge: true })
-      .then(() => console.log(`${sectionName} section saved/updated successfully`))
-      .catch(error => console.error(`Error saving/updating ${sectionName} section:`, error));
-  
-    console.log('Budget saved to Firestore');
-  }
+ 
 
 
   loadChecklistFromFirestoreById(sectionName: string) {
@@ -249,6 +238,90 @@ selectedTimeFrame: string = '';
     // this.loadBudgetFromFirestores();
 
     this.readFromDatabase();
+
+   
+
+  // Load the checklist for the logged-in user
+  this.loadChecklistForLoggedInUser();
+
+  // Retrieve the last selected checklist from the user's document
+  this.afAuth.currentUser.then((user) => {
+    if (user) {
+      const userEmail = user.email;
+      this.firestore
+        .collection('userDetails')
+        .doc(userEmail!)
+        .get()
+        .subscribe(
+          (doc) => {
+            if (doc.exists) {
+              const userData = doc.data() as any; // Adjust the type to match your user data structure
+
+              if (userData && userData.lastSelectedChecklist) {
+                const lastSelectedChecklist = userData.lastSelectedChecklist;
+
+                // Set the last selected checklist as the default
+                this.selectMonth(lastSelectedChecklist);
+              } else {
+                // If no checklist is found in the user's document, set the default one (e.g., '12 MONTHS')
+                this.selectMonth('12 MONTHS');
+              }
+            } else {
+              console.log('User document not found.');
+            }
+          },
+          (error) => {
+            console.error('Error loading user data from Firestore:', error);
+          }
+        );
+    } else {
+      console.error('User not authenticated.');
+    }
+  });
+
+    
+  }
+
+  loadChecklistForLoggedInUser() {
+    this.afAuth.currentUser.then((userAuth) => {
+      if (userAuth) {
+        const userEmail = userAuth.email!;
+
+        this.firestore.collection('userDetails').doc(userEmail).get().subscribe(
+          (doc) => {
+            if (doc.exists) {
+              const userData = doc.data() as any; // Adjust the type to match your user data structure
+
+              if (userData) {
+                for (const sectionName in userData) {
+                  if (userData.hasOwnProperty(sectionName)) {
+                    const sectionData = userData[sectionName];
+
+                    // Update the checklist based on the sectionName and sectionData
+                    this.checklist = this.checklist.map((item) => {
+                      if (item.timeFrame === sectionName) {
+                        item.checklist = Object.keys(sectionData).map((key) => ({
+                          name: key,
+                          checked: sectionData[key].checked,
+                        }));
+                      }
+                      return item;
+                    });
+                  }
+                }
+              }
+            } else {
+              console.log('User document not found.');
+            }
+          },
+          (error) => {
+            console.error('Error loading checklist from Firestore:', error);
+          }
+        );
+      } else {
+        console.error('User not authenticated.');
+      }
+    });
   }
   
   // ----------------------------------------------------------------------------------------------------------
@@ -259,6 +332,9 @@ selectedTimeFrame: string = '';
   
     this.presentAlert();
   }
+
+
+  
 
 
   async presentAlert() {
@@ -322,6 +398,38 @@ readFromDatabase(){
       });
     }
   }
+  saveChecklistToFirestore(sectionName: string, items: { name: string; checked: boolean }[]) {
+    this.afAuth.currentUser.then((user) => {
+      if (user) {
+        const userEmail = user.email;
+        const sectionData: { [key: string]: { checked: boolean } } = {};
+  
+        items.forEach((item) => {
+          sectionData[item.name] = { checked: item.checked };
+        });
+  
+        // Save the checklist data under the user's document in Firestore
+        this.firestore
+          .collection('userDetails')
+          .doc(userEmail!)
+          .set(
+            {
+              [sectionName]: sectionData,
+              lastSelectedChecklist: sectionName, // Update the last selected checklist
+            },
+            { merge: true }
+          )
+          .then(() =>
+            console.log(`${sectionName} section saved/updated successfully for ${userEmail}`)
+          )
+          .catch((error) => console.error(`Error saving/updating ${sectionName} section:`, error));
+      } else {
+        console.error('User not authenticated.');
+      }
+    });
+  }
+  
+  
   
 
 }
