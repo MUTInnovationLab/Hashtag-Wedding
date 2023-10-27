@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-
-// interface  Ceremony{
-//   name: string;
-//   budgetAmount: number;
-//   actualAmount: number;
-// }
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 interface BudgetItem {
   name: string;
@@ -88,16 +83,21 @@ export class BudgetPage implements OnInit{
       { name: 'Wedding favors', budgetAmount: 0.00, actualAmount: 0.00 },
       { name: 'Guestbook', budgetAmount: 0.00, actualAmount: 0.00 },
       { name: 'Gifts for the wedding party and parents', budgetAmount: 0.00, actualAmount: 0.00 },
-      { name: 'Accommodations for out-of-town guests', budgetAmount: 800.00, actualAmount: 0.00 }
+      { name: 'Accommodations for out-of-town guests', budgetAmount: 0.00, actualAmount: 0.00 }
     ]
   };
   
-
-  constructor(private firestore: AngularFirestore) {}
+  userEmailAddress = 'nduduzo@gmail.com';
+  constructor(private firestore: AngularFirestore,private auth: AngularFireAuth) {}
   ngOnInit() {
-    // this.loadBudgetFromFirestores();
+    this.auth.authState.subscribe((user) => {
+      if (user) {
+        this.userEmailAddress = user.email || 'nduduzo@gmail.com';
+        this.readFromDatabase();
+      }
+    });
+    // this.readFromDatabase();
 
-    this.readFromDatabase();
   }
   
   // ----------------------------------------------------------------------------------------------------------
@@ -132,25 +132,40 @@ readFromDatabase(){
   this.loadBudgetFromFirestoreById('MiscellaneousExpenses');
   
   }
-  // ----------------------------------------------------------------------------------------------------------
-  saveBudgetToFirestore(sectionName: string, items: { name: string; budgetAmount: number; actualAmount: number }[]) {
+  //------------------------------------------------------------------------------------------------
+  saveBudgetToFirestore(sectionName: string, items: BudgetItem[]) {
     const sectionData: { [key: string]: { budgetAmount: number; actualAmount: number } } = {};
     
     items.forEach(item => {
       sectionData[item.name] = { budgetAmount: item.budgetAmount, actualAmount: item.actualAmount };
     });
-  
-    this.firestore.collection('budget').doc(sectionName).set({ items: sectionData }, { merge: true })
+
+    // Save budget under the user's email address document
+    this.firestore.collection('users').doc(this.userEmailAddress).collection('budget').doc(sectionName).set({ items: sectionData }, { merge: true })
       .then(() => console.log(`${sectionName} section saved/updated successfully`))
       .catch(error => console.error(`Error saving/updating ${sectionName} section:`, error));
   
     console.log('Budget saved to Firestore');
   }
-//-----------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------
+calculateCategoryTotal(category: string): { budget: number; actual: number } {
+  const items = this.budget[category];
+  let totalBudget = 0;
+  let totalActual = 0;
+
+  items.forEach(item => {
+    totalBudget += item.budgetAmount;
+    totalActual += item.actualAmount;
+  });
+
+  return { budget: totalBudget, actual: totalActual };
+}
+
+//----------------------------------------------------------------------------------------------------
 
 loadBudgetFromFirestoreById(sectionName: string) {
   try {
-    this.firestore.collection('budget').doc(sectionName).get().subscribe(
+    this.firestore.collection('users').doc(this.userEmailAddress).collection('budget').doc(sectionName).get().subscribe(
       (doc: any) => {
         const sectionData = doc.data().items;
 

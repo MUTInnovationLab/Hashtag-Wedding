@@ -25,16 +25,16 @@
          </ion-col>
         </ion-row>
         <ion-row class="totals">
-            <ion-col>
+          <ion-col>
             <h4>Ceremony Total:</h4>
           </ion-col>
           <ion-col>
-              <h4>R10098</h4>
+            <h4>{{ calculateCategoryTotal('Ceremony').budget | currency: 'R':'symbol':'1.2-2' }}</h4>
           </ion-col>
-            <ion-col>
-                <h4>R88543</h4>
-            </ion-col>
-          </ion-row>
+          <ion-col>
+            <h4>{{ calculateCategoryTotal('Ceremony').actual | currency: 'R':'symbol':'1.2-2' }}</h4>
+          </ion-col>
+        </ion-row>
         <ion-row *ngFor="let item of budget['Ceremony']" class="budget-item">
           <ion-col >{{ item.name }}</ion-col>
           <ion-col>
@@ -56,11 +56,11 @@
             <h4>Reception Total:</h4>
           </ion-col>
           <ion-col>
-              <h4>R10098</h4>
+            <h4>{{ calculateCategoryTotal('receptionBudget').budget | currency: 'R':'symbol':'1.2-2' }}</h4>
           </ion-col>
-            <ion-col>
-                <h4>R88543</h4>
-            </ion-col>
+          <ion-col>
+            <h4>{{ calculateCategoryTotal('receptionBudget').actual | currency: 'R':'symbol':'1.2-2' }}</h4>
+          </ion-col>
           </ion-row>
         <ion-row *ngFor="let reception of budget['receptionBudget']" class="budget-item">
           <ion-col > {{reception.name}}</ion-col>
@@ -83,11 +83,11 @@
     <h4> Attire and Beauty Total:</h4>
   </ion-col>
   <ion-col>
-      <h4>R10098</h4>
+    <h4>{{ calculateCategoryTotal('AttireBeauty').budget | currency: 'R':'symbol':'1.2-2' }}</h4>
   </ion-col>
-    <ion-col>
-        <h4>R88543</h4>
-    </ion-col>
+  <ion-col>
+    <h4>{{ calculateCategoryTotal('AttireBeauty').actual | currency: 'R':'symbol':'1.2-2' }}</h4>
+  </ion-col>
   </ion-row>
 <ion-row *ngFor="let item of budget['AttireBeauty']" class="budget-item">
   <ion-col >	{{item.name}}</ion-col>
@@ -110,11 +110,11 @@
     <h4> Photography and Videography Total:</h4>
   </ion-col>
   <ion-col>
-      <h4>R10098</h4>
+    <h4>{{ calculateCategoryTotal('PhotographyandVideography').budget | currency: 'R':'symbol':'1.2-2' }}</h4>
   </ion-col>
-    <ion-col>
-        <h4>R88543</h4>
-    </ion-col>
+  <ion-col>
+    <h4>{{ calculateCategoryTotal('PhotographyandVideography').actual | currency: 'R':'symbol':'1.2-2' }}</h4>
+  </ion-col>
   </ion-row>
 <ion-row *ngFor="let item of  budget['PhotographyandVideography']" class="budget-item">
   <ion-col >{{item.name}}</ion-col>
@@ -139,11 +139,11 @@
     <h4>Entertainment Total:</h4>
   </ion-col>
   <ion-col>
-      <h4>R10098</h4>
+    <h4>{{ calculateCategoryTotal('Entertainment').budget | currency: 'R':'symbol':'1.2-2' }}</h4>
   </ion-col>
-    <ion-col>
-        <h4>R88543</h4>
-    </ion-col>
+  <ion-col>
+    <h4>{{ calculateCategoryTotal('Entertainment').actual | currency: 'R':'symbol':'1.2-2' }}</h4>
+  </ion-col>
   </ion-row>
 <ion-row *ngFor="let item of budget['Entertainment']" class="budget-item">
   <ion-col >{{item.name}}</ion-col>
@@ -169,11 +169,11 @@
   <h4>Stationery and Invitations Total:</h4>
 </ion-col>
 <ion-col>
-    <h4>R10098</h4>
+  <h4>{{ calculateCategoryTotal('StationeryandInvitations').budget | currency: 'R':'symbol':'1.2-2' }}</h4>
 </ion-col>
-  <ion-col>
-      <h4>R88543</h4>
-  </ion-col>
+<ion-col>
+  <h4>{{ calculateCategoryTotal('StationeryandInvitations').actual | currency: 'R':'symbol':'1.2-2' }}</h4>
+</ion-col>
 </ion-row>
 <ion-row *ngFor="let item of budget['StationeryandInvitations']" class="budget-item">
   <ion-col >{{item.name}}</ion-col>
@@ -197,11 +197,11 @@
     <h4>Flowers and Decor Total:</h4>
   </ion-col>
   <ion-col>
-      <h4>R10098</h4>
+    <h4>{{ calculateCategoryTotal('FlowersandDecor').budget | currency: 'R':'symbol':'1.2-2' }}</h4>
   </ion-col>
-    <ion-col>
-        <h4>R88543</h4>
-    </ion-col>
+  <ion-col>
+    <h4>{{ calculateCategoryTotal('FlowersandDecor').actual | currency: 'R':'symbol':'1.2-2' }}</h4>
+  </ion-col>
   </ion-row>
   <ion-row *ngFor="let item of budget['FlowersandDecor']" class="budget-item">
     <ion-col >{{item.name}}</ion-col>
@@ -224,11 +224,11 @@
       <h4> Wedding Rings Total:</h4>
     </ion-col>
     <ion-col>
-        <h4>R10098</h4>
+      <h4>{{ calculateCategoryTotal('WeddingRings').budget | currency: 'R':'symbol':'1.2-2' }}</h4>
     </ion-col>
-      <ion-col>
-          <h4>R88543</h4>
-      </ion-col>
+    <ion-col>
+      <h4>{{ calculateCategoryTotal('WeddingRings').actual | currency: 'R':'symbol':'1.2-2' }}</h4>
+    </ion-col>
     </ion-row>
 
     <ion-row *ngFor="let item of  budget['WeddingRings']" class="budget-item">
@@ -251,11 +251,11 @@
         <h4>Transportation Total:</h4>
       </ion-col>
       <ion-col>
-          <h4>R10098</h4>
+        <h4>{{ calculateCategoryTotal('Transportation').budget | currency: 'R':'symbol':'1.2-2' }}</h4>
       </ion-col>
-        <ion-col>
-            <h4>R88543</h4>
-        </ion-col>
+      <ion-col>
+        <h4>{{ calculateCategoryTotal('Transportation').actual | currency: 'R':'symbol':'1.2-2' }}</h4>
+      </ion-col>
       </ion-row>
       <ion-row *ngFor="let item of budget['Transportation']" class="budget-item">
         <ion-col > {{item.name}}</ion-col>
@@ -278,11 +278,11 @@
   <h4>Wedding Planner/Coordinator Total:</h4>
 </ion-col>
 <ion-col>
-    <h4>R10098</h4>
+  <h4>{{ calculateCategoryTotal('WeddingPlanner').budget | currency: 'R':'symbol':'1.2-2' }}</h4>
 </ion-col>
-  <ion-col>
-      <h4>R88543</h4>
-  </ion-col>
+<ion-col>
+  <h4>{{ calculateCategoryTotal('WeddingPlanner').actual | currency: 'R':'symbol':'1.2-2' }}</h4>
+</ion-col>
 </ion-row>
 <ion-row *ngFor="let item of budget['WeddingPlanner']" class="budget-item">
   <ion-col >{{item.name}}</ion-col>
@@ -304,11 +304,11 @@
   <h4>Miscellaneous Expenses Total:</h4>
 </ion-col>
 <ion-col>
-    <h4>R10098</h4>
+  <h4>{{ calculateCategoryTotal('MiscellaneousExpenses').budget | currency: 'R':'symbol':'1.2-2' }}</h4>
 </ion-col>
-  <ion-col>
-      <h4>R88543</h4>
-  </ion-col>
+<ion-col>
+  <h4>{{ calculateCategoryTotal('MiscellaneousExpenses').actual | currency: 'R':'symbol':'1.2-2' }}</h4>
+</ion-col>
 </ion-row>
 <ion-row *ngFor="let item of budget['MiscellaneousExpenses']" class="budget-item">
   <ion-col >	{{item.name}}</ion-col>
@@ -320,12 +320,6 @@
   </ion-col>
 </ion-row>
 
-        <!-- Total Budget Row (Calculated from TypeScript) -->
-        <!-- <ion-row class="total-row">
-          <ion-col class="item-label">Total Budget</ion-col>
-          <ion-col class="total-amount">{{ totalBudget() | currency:'USD':'symbol':'1.2-2' }}</ion-col>
-          <ion-col class="total-amount">{{ totalActual() | currency:'USD':'symbol':'1.2-2' }}</ion-col>
-        </ion-row> -->
       </ion-grid>
 
       <ion-item style="height:70px" no-line>
