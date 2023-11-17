@@ -15,7 +15,8 @@ ion-content {
     //       }
   
       ion-card-header {
-        background-color: var(--ion-color-primary);
+     background-color: #D8F5FD ;
+       // background-color: var(--ion-color-primary);
         color: white;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
@@ -80,10 +81,10 @@ ion-content {
   .gradient-circle {
     width: 300px;
     height: 300px;
-    background: radial-gradient(circle, #007bff, #7ab5f0);
+    background: radial-gradient(circle, #D8F5FD,  #98c9fa);
     border-radius: 50%;
     position: absolute;
-    top:35%;
+    top:165%;
     left: 0%;
   }
   .container2 {
@@ -96,7 +97,7 @@ ion-content {
   .gradient-circle2 {
     width: 300px;
     height: 300px;
-    background: radial-gradient(circle, #007bff, #7ab5f0);
+    background: radial-gradient(circle, #D8F5FD,  #98c9fa);
     border-radius: 50%;
     position: absolute;
     top: -35%;
@@ -113,7 +114,7 @@ ion-content {
   .gradient-circle3 {
     width: 250px;
     height: 250px;
-    background: radial-gradient(circle, #007bff, #7ab5f0);
+    background: radial-gradient(circle, #D8F5FD,  #98c9fa);
     border-radius: 50%;
     position: absolute;
     top: -1%;
@@ -127,7 +128,7 @@ ion-content {
   .gradient-circle4 {
     width: 100px;
     height: 100px;
-    background: radial-gradient(circle, #007bff, #7ab5f0);
+    background: radial-gradient(circle, #D8F5FD,  #98c9fa);
     border-radius: 50%;
     position: absolute;
     top: -10%;
@@ -142,7 +143,7 @@ ion-content {
   .gradient-circle5 {
     width: 100px;
     height: 100px;
-    background: radial-gradient(circle, #007bff, #7ab5f0);
+    background: radial-gradient(circle, #D8F5FD,  #98c9fa);
     border-radius: 50%;
     position: absolute;
     top: 100%;
@@ -158,11 +159,11 @@ ion-content {
   .gradient-circle6 {
     width: 150px;
     height: 150px;
-    background: radial-gradient(circle, #007bff, #7ab5f0);
+    background: radial-gradient(circle, #D8F5FD,  #98c9fa);
     border-radius: 50%;
     position: absolute;
-    top: 150%;
-    left: 200px;
+    top: 180%;
+    left: 400px;
 
   }
   .container7 {
@@ -174,7 +175,7 @@ ion-content {
   .gradient-circle7 {
     width: 250px;
     height: 250px;
-    background: radial-gradient(circle, #007bff,  #7ab5f0);
+    background: radial-gradient(circle, #D8F5FD,  #98c9fa);
     // border-radius: 50%;
     // position: absolute;
     // top: 0%;
@@ -185,9 +186,10 @@ ion-content {
 .header{
     text-align: center;
     background-color: #007bff;
-    
+    --background: #CAEBF2;
     ion-card-title{
-        color:#ffffff ;
+      color: #6D89B4;
+      font-family:'Times New Roman', Times, serif;
     }
 }
 
@@ -242,6 +244,8 @@ ion-content {
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     width: 40%;
+    display: flex;
+    flex-direction: column;
     // margin-bottom: 20px; /* Add margin between cards */
     // margin-bottom: -15%;
   }
@@ -286,3 +290,24 @@ ion-button {
 //     display: "strack";
 //   }
 // }
+ion-toolbar{
+  --background:  #D8F5FD;
+}
+ion-title{
+  font-weight: bold !important;
+color: rgb(52, 52, 52);
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+@media screen and (max-width: 300px) {
+  .profile-row,grid-start {
+display: block;
+  }
+
+  @media only screen and (max-device-width: 480px) {
+    .profile-row {
+      display: block;
+    }
+  }
+}

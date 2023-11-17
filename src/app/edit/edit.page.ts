@@ -9,6 +9,7 @@ import {
 } from '@angular/animations';
 import { DataService } from '../services/data.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit',
@@ -25,6 +26,8 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 export class EditPage implements OnInit {
   showProfile = true;
   showWeddingInfo = false;
+ 
+
 
   @ViewChild('nextButton') nextButton: IonButton | undefined;
   @ViewChild('saveButton') saveButton: ElementRef | undefined;
@@ -64,11 +67,14 @@ export class EditPage implements OnInit {
     maxBudget: '',
   };
 
-  constructor(private dataService: DataService,private auth:AngularFireAuth) {}
-
-  ngOnInit() {
+  constructor(private router:Router,private dataService: DataService,private auth:AngularFireAuth) {
     this.getUserDoc();
   }
+
+  ngOnInit() {
+     
+  }
+ 
 
   saveWeddingChanges() {
     this.wedding.couple = this.wedding.groom + ' & ' + this.wedding.bride;
@@ -102,6 +108,8 @@ export class EditPage implements OnInit {
           minBudget: '',
           maxBudget: '',
         };
+      }).then(() => {
+        this.router.navigateByUrl("/view-profile")
       })
       .catch((error) => {
         console.error(error.message);
@@ -117,7 +125,7 @@ export class EditPage implements OnInit {
       if (user && user.email) {
         const docSnapshot = await this.dataService.getUserDoc(user.email);
   
-        console.log("mike");
+ 
         if (docSnapshot?.exists) {
           this.docData = docSnapshot.data(); // Get the data object from the snapshot
           // Set data to the user object
@@ -139,10 +147,11 @@ export class EditPage implements OnInit {
           this.wedding.location = this.docData.wedding.location || '';
           this.wedding.minBudget = this.docData.wedding.minBudget || '';
           this.wedding.maxBudget = this.docData.wedding.maxBudget || '';
-    
+      
           console.log("User this.docData:", this.user);
           console.log("Wedding this.docData:", this.wedding);
           console.log("Document data:", docSnapshot.data());
+          
         } else {
           console.log("Document does not exist.");
         }

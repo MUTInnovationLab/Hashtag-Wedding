@@ -1,47 +1,19 @@
-
-
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/dashboard"></ion-back-button>
-    </ion-buttons>
+  <ion-toolbar style="text-align:center;">
+    <ion-icon name="arrow-back-sharp" style="zoom:1.6; margin-left:5px" slot="start" routerLink="/dashboard"></ion-icon>
     <ion-title>View Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content style="--background: url('assets/VV.jpg') no-repeat center / cover;">
   <ion-item class="item-start">
     <ion-button slot="end" class="button-edit"  routerLink="/edit">
         <ion-icon name="pencil-outline" > </ion-icon>
     </ion-button>
   </ion-item>
-  <div class="container">
-    <div class="gradient-circle"></div>
-  </div>
-
-  <div class="container2">
-    <div class="gradient-circle2"></div>
-  </div>
-
-  <div class="container3">
-    <div class="gradient-circle3"></div>
-  </div>
   
-  <div class="container4">
-    <div class="gradient-circle4"></div>
-  </div>
-
-  <div class="container5">
-    <div class="gradient-circle5"></div>
-  </div>
-  <div class="container6">
-    <div class="gradient-circle6"></div>
-  </div>
-  <div class="container7">
-    <div class="gradient-circle7"></div>
-  </div>
     <ion-grid class="grid-start">
-      <ion-row class="profile-row">
+      <div class="profile-row">
     <ion-card class="profile-card">
       <ion-card-header class="header">
         <ion-card-title>Personal Information</ion-card-title>
@@ -135,7 +107,7 @@
         </ion-list>
       </ion-card-content>
     </ion-card>
-  </ion-row>
+  </div>
 </ion-grid>
  
   
