@@ -167,8 +167,10 @@ loadBudgetFromFirestoreById(sectionName: string) {
   try {
     this.firestore.collection('users').doc(this.userEmailAddress).collection('budget').doc(sectionName).get().subscribe(
       (doc: any) => {
-        const sectionData = doc.data().items;
 
+     
+        const sectionData = doc?.data()?.items;
+        
         if (sectionData) {
           console.log('Section Name:', sectionName);
           console.log('Section Data:', sectionData);
@@ -183,11 +185,16 @@ loadBudgetFromFirestoreById(sectionName: string) {
         }
         console.log('Section Data:',  this.budget[sectionName]);
         console.log('Budget loaded from Firestore:', this.budget);
+        
       },
       (error: any) => {
         console.error('Error loading budget from Firestore:', error);
       }
+      
     );
+    
+    // Your code here
+
   } catch (error) {
     console.error('Error in try block:', error);
   }
